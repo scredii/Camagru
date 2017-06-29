@@ -1,6 +1,42 @@
+<html>
+    <header>
+            <a class="tit" href="http://localhost:8888/camagru/index.php"><img class="cama" src="pictures/site/cama_log.png" alt="camagru_logo"></a><br/><br/>
+            <style type="text/css">@import url("./style.css");</style>
+            <title>Camagru</title>
+            <script type="text/javascript" src="alert.js"></script>
+    </header>
+    <body>
+        <center>
+            <div align="center" class="all_form">
+	        	<form method="POST" action="#" onsubmit="return verifForm(this)"> 
+                	<label for="email">E-mail: </label><input type="mail" id="email" name="email" onblur="verifMail(this)"/>
+					<br/>
+                	<br/> 
+					<label for="username">Pseudo: </label><input type="text" id="username" name="username" onblur="verifPseudo(this)"/>
+					<br>
+					<br/>
+					<label for="password">Password: </label><input onblur="verifPasswd(this)" type="password" id="password" name="password"/>
+					<br>
+					<br/>
+					<label for="password_confirm">Confirmer password:</label><input onblur="verifPasswd(this)" type="password" name="password_confirm" id="password_confirm"/>
+					<br>
+					<br/>
+					<div class="submit">
+					<input type="submit" id="submit" name="submit" value="OK">
+    	    	</form>
+        	</div>
+        </center>
+        <div class="lost_account">
+            <a id="create_account" href="http://localhost:8888/camagru/index.php">Retour</a>
+        </div>
+    </body>
+	<?php include("footer.html"); ?>
+</html>
+
 <?php
-// header("Refresh:1;url=http://localhost:8888/camagru/index.php");
-if ($_POST['submit'] == "OK")
+session_start();
+require("auth.php");
+if ($_POST['submit'] == "OK" && $_POST['password'] != "" && $_POST['email'] != "" && $_POST['username'] != "" && $_POST['password_confirm'] != "")
 {
 		$errors = [];
 		$actif = 0;
@@ -71,4 +107,6 @@ if ($_POST['submit'] == "OK")
 			echo "</pre>";
 		}
 }
+else
+	header("Location: subscribe.html")
 ?>

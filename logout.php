@@ -1,5 +1,6 @@
 <?php
 session_start();
-$_SESSION['loggued_on_user'] = "";
+$_SESSION['auth'] = array();
+session_destroy();
+header('Location: index.php');
 ?>
-<a href="logout.php">Se déconnecter</a>

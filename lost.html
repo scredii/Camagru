@@ -2,13 +2,22 @@
 <html>
     <header>
             <meta charset="utf-8"/>
+            <title>Camagru</title>
+            <a class="tit" href="http://localhost:8888/camagru/index.php"><img class="cama" src="pictures/site/cama_log.png" alt="camagru_logo"></a><br/><br/>
+            <style type="text/css">@import url("./style.css");</style>
+            <script type="text/javascript" src="alert.js"></script>
     </header>
     <body>
-	        <form method="POST" action="lost.php">  
-	            E-mail: <input type="mail" name="email"/>
+        <center>
+	        <form method="POST" action="lost.php" onsubmit="return verifForm(this)">  
+	            E-mail: <input type="mail" name="email" onblur="verifMail(this)"/>
                 <br>
                 <br>
-    		    <input type="submit" name="submit" value="OK">
+    		    <input type="submit" id="submit" name="submit" value="OK">
 	        </form>
+        </center>
+        <div class="lost_account">
+            <a id="create_account" href="http://localhost:8888/camagru/index.php">Retour</a>
+        </div>
     </body>
 </html>

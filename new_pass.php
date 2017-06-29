@@ -14,8 +14,8 @@
     $req = $db->prepare("SELECT token,email FROM users WHERE email like :email ");
     if($req->execute(array(':email' => $mail_tmp)) && $row = $req->fetch())
     {
-        $tok = $row['token'];	// Récupération de la clé
-        $rmail = $row['email']; // recup mail
+        $tok = $row['token'];
+        $rmail = $row['email'];
     }
     if($tok == $key_tmp && $mail_tmp ==  $rmail)
     {
@@ -73,6 +73,7 @@
 			if ($req->execute($values))
 			{
                 echo "Mot de passe modifié avec succés";
+                exit();
             }
             else
                 echo "Impossible de modifier le mot de passe";

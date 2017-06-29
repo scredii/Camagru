@@ -1,0 +1,337 @@
+		* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 20px 15%;
+}
+form header {
+  margin: 0 0 20px 0; 
+}
+form header div {
+  font-size: 90%;
+  color: #999;
+}
+form header h2 {
+  margin: 0 0 5px 0;
+}
+form > div {
+  clear: both;
+  overflow: hidden;
+  padding: 1px;
+  margin: 0 0 10px 0;
+}
+form > div > fieldset > div > div {
+  margin: 0 0 5px 0;
+}
+form > div > label,
+legend {
+	width: 25%;
+  float: left;
+  padding-right: 10px;
+}
+form > div > div,
+form > div > fieldset > div {
+  width: 75%;
+  float: right;
+}
+form > div > fieldset label {
+	font-size: 90%;
+}
+fieldset {
+	border: 0;
+  padding: 0;
+}
+#email
+{
+	width: 50%;
+}
+input[type=text],
+input[type=email],
+input[type=url],
+input[type=password],
+textarea {
+	width: 100%;
+  border-top: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+input[type=text],
+input[type=email],
+input[type=url],
+input[type=password] {
+  width: 50%;
+}
+input[type=text]:focus,
+input[type=email]:focus,
+input[type=url]:focus,
+input[type=password]:focus,
+textarea:focus {
+  outline: 0;
+  border-color: #4697e4;
+}
+
+@media (max-width: 600px) {
+  form > div {
+    margin: 0 0 15px 0; 
+  }
+  form > div > label,
+  legend {
+	  width: 100%;
+    float: none;
+    margin: 0 0 5px 0;
+  }
+  form > div > div,
+  form > div > fieldset > div {
+    width: 100%;
+    float: none;
+  }
+  input[type=text],
+  input[type=email],
+  input[type=url],
+  input[type=password],
+  textarea,
+  select {
+    width: 100%; 
+  }
+}
+@media (min-width: 1200px) {
+  form > div > label,
+	legend {
+  	text-align: right;
+  }
+}
+		html
+		{
+			background-color: #66cccc;
+			         /*background     : transparent url("adresse de l'image transparente") repeat ;*/
+			/*background-image: url("pictures/site/green_dust_scratch.png");			*/
+			font-family: Verdana, Geneva, Tahoma, sans-serif;
+			font-size: small;
+			/*font-style: oblique;*/
+			height: 100%;
+		}
+		body
+		{
+			min-height: 100%;
+			margin: 0;
+			padding: 0;
+			position: relative;
+		}
+		footer
+		{
+			position: absolute; 
+			bottom: 0;
+		}
+		.logofor
+		{
+			width: 5em;
+		}
+		/*#forty
+		{
+			margin:  0px 0px 0px;			
+		}*/
+		/*.submit
+		{
+			margin-left: 100px;	
+		}*/
+		.form1
+		{
+			margin-bottom: 200px;
+			    /*width:105px;*/
+    /*margin:0 auto;*/
+			/*border-radius: 5px 10px 5px 5px;*/
+			/*border: 1vmin solid blue;*/
+			display: block;
+			position: relative;
+			/*align-content: center;*/
+			/*margin-left: 200px;*/
+			margin: auto;
+			float: left;
+			display: inline;
+			width:75vmin;
+			height: 40vmin;
+			margin-right: 2px;
+		}
+		h1
+		{
+			font-family: Verdana, Geneva, Tahoma, sans-serif;
+			font-size: small;
+			/*font-style: oblique;*/
+			width: 10px;
+		}
+		.all_form
+		{
+    /*max-width:100vmin;*/
+			display: inline-block;
+	/*float: center;*/
+    /*background-color:black;*/
+    /*height:30vmin;*/
+		}
+		.form2
+		{
+			/*border-radius: 5px 10px 5px 5px;			*/
+			margin-left: 1vmin;
+			/*border: 1vmin solid blue;*/
+			display: block;
+			float: right;
+			/*position: relative;*/
+			/*align-content: center;*/
+			/*margin: auto;*/
+			/*display: right;*/
+			/*/*width:500px;*/
+			    width:75vmin;
+    /*margin:0 auto;*/
+    height:40vmin;
+		}
+		label
+		{
+			display: block;
+			/*position: relative;*/
+			float: left;
+			width: 15vmin;
+		}
+		.lost_account
+		{
+			position: absolute; 
+			top: 6px;
+			right: 10px;
+			/*margin: 0 auto;*/
+			/*width: 200px; */
+		}
+		.create_account
+		{
+			   /*width: 100%;*/
+			position: absolute; 
+			top: 6px;
+			right: 200px;
+			/*margin: 25px auto;
+			width: 200px; */
+		}
+		#create_account
+		{
+			background-color: #007feb;
+			border: 1px solid transparent;
+			border-radius: 4px;
+			color: #fff;
+			cursor: pointer;
+			display: block;
+			font-size: 12px;
+			line-height: 16px;
+			width: 13em;
+			text-decoration:none; 
+			margin: 0;
+			padding: 7px 12px;
+			position: relative;
+			text-align: center;
+			/*vertical-align: middle;*/
+			transition-duration: .15s;
+			transition-property: background-color,border-color,color,opacity;	
+		}
+		#lost_account
+		{
+			text-decoration:none;
+			background-color: #007feb;
+			border: 1px solid transparent;
+			border-radius: 4px;
+			color: #fff;
+			cursor: pointer;
+			display: inline-block;
+			width: 14em;
+			font-size: 12px;
+			line-height: 16px;
+			margin: 0;
+			padding: 7px 12px;
+			position: relative;
+			text-align: center;
+			vertical-align: middle;
+			transition-duration: .15s;
+			transition-property: background-color,border-color,color,opacity;	
+		}
+		#submit
+		{
+			background-color: #007feb;
+			border: 1px solid transparent;
+			border-radius: 4px;
+			color: #fff;
+			cursor: pointer;
+			display: inline-block;
+			font-size: 12px;
+			line-height: 16px;
+			margin: 0;
+			padding: 7px 12px;
+			position: relative;
+			text-align: center;
+			vertical-align: middle;
+			transition-duration: .15s;
+			transition-property: background-color,border-color,color,opacity;
+		}
+		.confirm
+		{
+			display: block;
+			margin-left: auto;
+    		margin-right: -50px;
+		}
+		/*.formulaire
+		{
+			display: block;
+			margin-left: auto;
+    		margin-right: auto;
+		}*/
+		.hello
+		{
+			display: block;
+			margin-left: auto;
+    		margin-right: top;
+			margin-top: -80px;
+			margin-left: 20px;
+			width: 20em;
+		}
+		.power
+		{
+			display: block;
+			margin-left: auto;
+    		margin-right: top;
+			margin-top: -90px;
+			width: 5em;
+		}
+		.pass
+		{
+			margin-left: -20px;
+			margin-right: auto;
+		}
+		.cama , .tit{
+			display: block;
+			margin-left: auto;
+    		margin-right: auto;
+    		width: 13em;
+		}
+		/*canvas {
+			display: none;
+		}*/
+		video, #startbutton 
+		{
+			display: block;
+			float: left;
+			margin-top: 60px;
+			margin-left: 30px;
+			border-radius: 10px;
+		}
+		#startbutton 
+		{
+			background: green;
+			border: none;
+			color: #fff;
+			margin: 100px 20px 20px 20px;
+			padding: 10px 20px;
+			font-size: 20px;
+		}
+		#container
+		{
+			overflow: hidden;
+			width: 880px;
+			margin: 20px auto;
+		}

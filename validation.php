@@ -1,5 +1,5 @@
 <?php
-    header('Refresh: 3;URL=http://localhost:8888/camagru/index.php');
+    // header('Refresh: 3;URL=http://localhost:8888/camagru/index.php');
     try
     {
         $db = new PDO('mysql:host=localhost;dbname=cama_base','root','root');

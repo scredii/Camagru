@@ -1,10 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <header>
+            <meta charset="utf-8"/>
+            <title>Camagru</title>
+            <a class="tit" href="http://localhost:8888/camagru/index.php"><img class="cama" src="pictures/site/cama_log.png" alt="camagru_logo"></a><br/><br/>
+            <style type="text/css">@import url("./style.css");</style>
+            <script type="text/javascript" src="alert.js"></script>
+    </header>
+    <body>
+        <center>
+	        <form method="POST" action="#" onsubmit="return verifForm(this)">  
+	            E-mail: <input type="mail" name="email" onblur="verifMail(this)"/>
+                <br>
+                <br>
+    		    <input type="submit" id="submit" name="submit" value="OK">
+	        </form>
+        </center>
+        <div class="lost_account">
+            <a id="create_account" href="http://localhost:8888/camagru/index.php">Retour</a>
+        </div>
+    </body>
+    <?php include("footer.html"); ?>
+</html>
+
 <?php
 if ($_POST['submit'] == "OK" && $_POST['email'] != "")
 {
-    $errors = [];
     if(empty($_POST['email']) || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))
     {
-		$errors['email'] = "Votre email n'est pas valide";
+		echo "Votre email n'est pas valide";
+        echo "<br><br><a href='http://localhost:8888/camagru/index.php'>Retourner au menu principal</a>";        
         die();
     }
     try
@@ -39,15 +64,17 @@ if ($_POST['submit'] == "OK" && $_POST['email'] != "")
         
         mail($email2, $subject, $message, $entete) ;
 	    echo "Un mail de reinitialisation vient de vous etre envoyé";
+        echo "<br><br><a href='http://localhost:8888/camagru/index.php'>Retourner au menu principal</a>";
 	}
     else
     {
         echo "Email non reconnu.\n";
+        echo "<br><br><a href='http://localhost:8888/camagru/index.php'>Retourner au menu principal</a>";        
         die();
     }
 }
 else
 {
-    echo "Mail non valide";
+    header("Location: lost.html");
 }
 ?>

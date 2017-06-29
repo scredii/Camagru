@@ -13,10 +13,16 @@ try {
 	// $db->query("DROP TABLE users");
 	// here create tables (with correct columns)
     echo "- Creating Tables \n";
-    $create = "CREATE TABLE users (id INT(16) PRIMARY KEY NOT NULL AUTO_INCREMENT, username VARCHAR(255) NOT NULL, email VARCHAR(255) NOT NULL, password VARCHAR(255) NOT NULL, token VARCHAR(255) NOT NULL, actif int(16) NOT NULL);" ;
-    // $dbh->query("CREATE TABLE pictures (_id INT(16) PRIMARY KEY NOT NULL AUTO_INCREMENT, owner VARCHAR(255) NOT NULL, base64 LONGBLOB NOT NULL, likes TEXT NOT NULL, comments TEXT NOT NULL, created_at datetime NOT NULL DEFAULT NOW())");
+    $create = "CREATE TABLE IF NOT EXISTS users (id INT(16) PRIMARY KEY NOT NULL AUTO_INCREMENT, username VARCHAR(255) NOT NULL, email VARCHAR(255) NOT NULL, password VARCHAR(255) NOT NULL, token VARCHAR(255) NOT NULL, actif int(16) NOT NULL);" ;
+    // $create2 = "CREATE TABLE IF NOT EXISTS pictures (id INT(16) PRIMARY KEY NOT NULL AUTO_INCREMENT,`picture` VARCHAR(20000) NOT NULL);";
     $db->exec($create);
-    echo " -- DB and Tables ok";
+    // $db->exec($create2);
+    echo " -- DB and Tables ok ";
+    if (!file_exists("../pictures"))
+    {
+        mkdir("../pictures");
+        echo "Path created.\n";
+    }
     } 
     catch (PDOException $e)
     {
