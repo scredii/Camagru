@@ -14,9 +14,9 @@ try {
 	// here create tables (with correct columns)
     echo "- Creating Tables \n";
     $create = "CREATE TABLE IF NOT EXISTS users (id INT(16) PRIMARY KEY NOT NULL AUTO_INCREMENT, username VARCHAR(255) NOT NULL, email VARCHAR(255) NOT NULL, password VARCHAR(255) NOT NULL, token VARCHAR(255) NOT NULL, actif int(16) NOT NULL);" ;
-    // $create2 = "CREATE TABLE IF NOT EXISTS pictures (id INT(16) PRIMARY KEY NOT NULL AUTO_INCREMENT,`picture` VARCHAR(20000) NOT NULL);";
+    $create2 = "CREATE TABLE IF NOT EXISTS picture (id INT(16) PRIMARY KEY NOT NULL AUTO_INCREMENT,`picture` VARCHAR(20000) NOT NULL, username VARCHAR(255) NOT NULL);";
     $db->exec($create);
-    // $db->exec($create2);
+    $db->exec($create2);
     echo " -- DB and Tables ok ";
     if (!file_exists("../pictures"))
     {

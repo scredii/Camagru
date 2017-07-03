@@ -21,11 +21,52 @@ if (auth::isLogged() == FALSE)
       <video id="video"></video>
       <button id="startbutton">Prendre une photo</button>
       <canvas id="canvas"></canvas>
-      <img src="http://placekitten.com/g/320/261" id="photo" alt="photo">
+      <img src="http://placekitten.com/g/320/261" id="photo" alt="photo" hidden/>
       <script type="text/javascript" src="cam.js"></script>
       <form action="image.php" name="uploadphoto" method="post" style="display:inline-table;" enctype="multipart/form-data">
-      <input name="image" id="toto" hidden/>
-      <input type="submit" value="OK" hidden/>
-  </form>
+        <input name="image" id="toto" hidden/>
+        <div class="filter">
+            <input type="radio" name="filter" value="snap" checked> Snapchat<br>
+  			<input type="radio" name="filter" value="beer"> Beer<br>
+  			<input type="radio" name="filter" value="spliff"> Spliff
+        </div>
+        <input type="submit" value="OK" hidden/>
+      </form>
+  <div class="gallery">
+<?php
+require("auth.php");
+        echo '
+    <div class="col33">
+    <h1>'.$result['picture'].'</h1><br>
+    <img src="./pictures/users/tde.png" /><br>
+    <span>'.$data['prix'].' $</span><br>
+    </div>
+    ';
+if (!$db = auth::connect_sql())
+{
+	echo "ERROR";
+}
+echo "HERE GEIEPFFKE";
+$picture = $db->query('SELECT * FROM picture');
+// if (($test = $picture->fetch()))
+// {
+//             $titi = $test;
+// }
+while ($result = $picture->fetch())
+{
+	echo $titi;
+	echo $picture;
+	print_r($result);
+        echo '
+    <div class="col33">
+    <h1>'.$result['picture'].'</h1><br>
+    <img src="./pictures/users/tde.png" /><br>
+    <span>'.$data['prix'].' $</span><br>
+    </div>
+    ';
+    $i++;
+}
+?>   
+</div>
 </body>
 </html>

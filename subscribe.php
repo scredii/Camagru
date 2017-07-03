@@ -9,16 +9,16 @@
         <center>
             <div align="center" class="all_form">
 	        	<form method="POST" action="#" onsubmit="return verifForm(this)"> 
-                	<label for="email">E-mail: </label><input type="mail" id="email" name="email" onblur="verifMail(this)"/>
+					<input type="mail" id="email" name="email" onblur="verifMail(this)" placeholder="E-mail"/>
 					<br/>
                 	<br/> 
-					<label for="username">Pseudo: </label><input type="text" id="username" name="username" onblur="verifPseudo(this)"/>
+					<input type="text" id="username" name="username" onblur="verifPseudo(this)" placeholder="Login"/>
 					<br>
 					<br/>
-					<label for="password">Password: </label><input onblur="verifPasswd(this)" type="password" id="password" name="password"/>
+					<input onblur="verifPasswd(this)" type="password" id="password" name="password" placeholder="Password"/>
 					<br>
 					<br/>
-					<label for="password_confirm">Confirmer password:</label><input onblur="verifPasswd(this)" type="password" name="password_confirm" id="password_confirm"/>
+					<input onblur="verifPasswd(this)" type="password" name="password_confirm" id="password_confirm" placeholder="Confirm password"/>
 					<br>
 					<br/>
 					<div class="submit">

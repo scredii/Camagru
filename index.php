@@ -11,12 +11,11 @@
         <center>
         <div align="center" class="all_form">
             <div class="form1">
-                <!--<h2>Se connecter</h2>-->
                 <form method="POST" action="camagru.php">
-                        <label for="username">login: </label><input type="text" id="username" name="login" aria-label="First name"/>
+						<input type="text" id="username" name="login" placeholder="Login"/>
                         <br>
                         <br/>
-                        <label for="password">Password: </label><input type="password" id="password" name="passwd" data-type="text" autocomplete="new-password" aria-label="New password"/>
+						<input type="password" id="password" name="passwd" placeholder="Password"/>
                         <br>
                         <br/>
                         <br>

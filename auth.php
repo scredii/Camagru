@@ -45,6 +45,89 @@ class auth
         else
             return (FALSE);
     }
+
+    function add_picture($picture)
+{
+    if (auth::islogged())
+    {
+        $username = $_SESSION['auth']['login'];
+        try
+        {
+            $db = new PDO('mysql:host=localhost;dbname=cama_base','root','root');
+            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        }
+        catch (PDOException $e) 
+        {
+            echo 'Connection failed: ' . $e->getMessage();
+        }
+        $values = array($picture, $username);
+		$req = $db->prepare('INSERT INTO picture (picture, username) VALUES (?, ?)');
+		if ($req->execute($values))
+        {
+            return (TRUE);
+        }
+        else
+            return (FALSE);
+    }
+    else
+        return (FALSE);
+}
+    function see_picture()
+    {
+        try
+        {
+	        $db = new PDO('mysql:host=localhost;dbname=cama_base','root','root');
+	        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	    }
+        catch (PDOException $e) 
+        {
+            echo 'Connection failed: ' . $e->getMessage();
+        }
+        $picture = $db->query('SELECT * FROM picture');
+        if (($test = $picture->fetch()))
+        {
+            $titi = $test;
+        }
+        return($titi);
+    }
+
+    function connect_sql()
+    {
+                try
+        {
+	        $db = new PDO('mysql:host=localhost;dbname=cama_base','root','root');
+	        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	    }
+        catch (PDOException $e) 
+        {
+            echo 'Connection failed: ' . $e->getMessage();
+        }
+    }
 }
 
+// function add_picture($picture)
+// {
+//     // if (auth::islogged())
+//     // {
+//         print_r($_SESSION);
+//         $username = $_SESSION['auth']['login'];
+//         try
+//         {
+//             $db = new PDO('mysql:host=localhost;dbname=cama_base','root','root');
+//             $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+//         }
+//         catch (PDOException $e) 
+//         {
+//             echo 'Connection failed: ' . $e->getMessage();
+//         }
+//         $values = array($picture, $username);
+// 		$req = $db->prepare('INSERT INTO picture (picture, username) VALUES (?, ?)');
+// 		if ($req->execute($values))
+//             return (TRUE);
+//         else
+//             return (FALSE);
+//     // }
+//     // else
+//     //     return (FALSE);
+// }
 ?>

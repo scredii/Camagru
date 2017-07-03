@@ -156,6 +156,15 @@ textarea:focus {
 			height: 40vmin;
 			margin-right: 2px;
 		}
+		.gallery
+		{
+ width: 200px;
+ height: 200px;
+		}
+		canvas
+		{
+			width: 0;
+		}
 		h1
 		{
 			font-family: Verdana, Geneva, Tahoma, sans-serif;
