@@ -2,7 +2,6 @@
 session_start();
 require("auth.php");
 // header("Location: webcam.php");
-// print_r($_POST);
 function imagecopymerge_alpha($dst_im, $src_im, $dst_x, $dst_y, $src_x, $src_y, $src_w, $src_h, $pct)
 { 
         $cut = imagecreatetruecolor($src_w, $src_h); 
@@ -11,9 +10,98 @@ function imagecopymerge_alpha($dst_im, $src_im, $dst_x, $dst_y, $src_x, $src_y, 
         imagecopymerge($dst_im, $cut, $dst_x, $dst_y, 0, 0, $src_w, $src_h, $pct); 
 }
 
+function add_filter($dest, $choice)
+{
+    if (!$choice)
+        return ($dest);
+    if ($choice == 1)
+    {
+        // $valeur= -50;
+        // imagefilter($dest,IMG_FILTER_CONTRAST,$valeur);
+        imagefilter($dest,IMG_FILTER_COLORIZE,0,-100,0);
+        //   imagefilter($dest, IMG_FILTER_GAUSSIAN_BLUR);
+        return ($dest);
+    }
+    else
+        return ($dest);
+}
+
+function resize_picture($src)
+{
+        // $new = imagecreatetruecolor(320, 240);
+        // list($witdh, $height) = getimagesize($src['upload_photo']['tmp_name']);
+        // imagealphablending($new, false);
+        // imagesavealpha ($new, true);
+        // $src1 = imagecreatefromjpeg($src['tmp_name']);
+        // imagecopyresized($new, $src1, 0, 0, 0, 0, 320, 240, $width, $height);
+
+       // imagecopyresampled($new, $src1, 0, 0,20, 20, 320, 240, $width, $height);
+        // header("Content-type: image/png");
+        // imagepng($new);
+        // echo $new;
+    $maxDimW = 320;
+    $maxDimH = 240;
+    list($width, $height, $type, $attr) = getimagesize($src['upload_photo']['tmp_name']);
+    if ( $width > $maxDimW || $height > $maxDimH ) 
+    {
+        $target_filename = $src['upload_photo']['tmp_name'];
+        $fn = $src['upload_photo']['tmp_name'];
+        $size = getimagesize($fn);
+        $ratio = $size[0]/$size[1];
+        if( $ratio > 1) {
+            $width = $maxDimW;
+            $height = $maxDimH/$ratio;
+        } else {
+            $width = $maxDimW*$ratio;
+            $height = $maxDimH;
+        }
+        $src = imagecreatefromstring(file_get_contents($fn));
+        $dst = imagecreatetruecolor( $width, $height );
+        imagecopyresampled($dst, $src, 0, 0, 0, 0, $width, $height, $size[0], $size[1]);
+
+    ob_start();
+    imagepng($dst, $target_filename);
+    $image_data = ob_get_contents();
+    ob_end_clean();
+        print_r($image_data);
+        // imagepng($dst, $target_filename);
+
+        return ($image_data);
+}
+}
+
+function check_format($src)
+{
+        $extension_upload = strtolower(substr(strrchr($src['upload_photo']['name'], '.'),1));
+        if ($extension_upload != "png")
+            exit("Extension incorrecte");
+        list($witdh, $height) = getimagesize($src['upload_photo']['tmp_name']);
+        $test = file_get_contents($src['upload_photo']['tmp_name']);
+        if ($witdh == 0|| $height == 0)
+            exit("Format non supporte ou erreur lors de l'upload de la photo");
+}
+function is_post_file($file)
+{
+    if (!empty($file['upload_photo']['tmp_name'] || !empty($file['upload_photo']['name'])))
+        return (TRUE);
+    else
+        return (FALSE);
+}
+
 if ($_POST['filter'] == "snap")
 {
-    $src = $_POST['image'];
+    if ($_POST['filter2'])
+        $choice = $_POST['filter2'];
+    if (is_post_file($_FILES) == FALSE)
+    {
+        $src = $_POST['image'];
+    }
+    else
+    {
+        check_format($_FILES);
+        $src = file_get_contents($_FILES['upload_photo']['tmp_name']);
+        $src = 'data:image/png;base64,' . base64_encode($src);
+    }
     $src = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $src));
     file_put_contents("pictures/users/tmp.png", $src);
     $src1 = imagecreatefrompng("pictures/site/filtres/motage2.png");
@@ -21,16 +109,40 @@ if ($_POST['filter'] == "snap")
     imagealphablending($src1, false);
     imagesavealpha ($src1, true);
     imagecopymerge_alpha($dest, $src1, imagesx($dest) / 2 - 50, imagesy($dest) / 2 - 60, 0, 0, imagesx($src1), imagesy($src1), 90);
-    header("Content-type: image/png");
+    $dest = add_filter($dest, $choice);
+    ob_start();
     imagepng($dest);
+    $image_data = ob_get_contents();
+    ob_end_clean();
+    $image_data = 'data:image/png;base64,' . base64_encode($image_data);
+    if (auth::add_picture($image_data) == TRUE)
+    {
+        unlink("pictures/users/tmp.png");
+        header("Location: webcam.php");
+    }
+    else
+    {
+        echo "Error\n";
+        unlink("pictures/users/tmp.png");
+    }
     imagedestroy($dest);
     imagedestroy($src1);
-    // supprimer l'image temporaire
 }
 
 if ($_POST['filter'] == "beer")
 {
-    $src = $_POST['image'];
+    if ($_POST['filter2'])
+        $choice = $_POST['filter2'];
+    if (is_post_file($_FILES) == FALSE)
+    {
+        $src = $_POST['image'];
+    }
+    else
+    {
+        check_format($_FILES);
+        $src = file_get_contents($_FILES['upload_photo']['tmp_name']);
+        $src = 'data:image/png;base64,' . base64_encode($src);
+    }
     $src = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $src));
     file_put_contents("pictures/users/tmp.png", $src);
     $src1 = imagecreatefrompng("pictures/site/filtres/beer.png");
@@ -38,16 +150,39 @@ if ($_POST['filter'] == "beer")
     imagealphablending($src1, false);
     imagesavealpha ($src1, true);
     imagecopymerge_alpha($dest, $src1, imagesx($dest) / 2 - 50, imagesy($dest) / 2 - 60, 0, 0, imagesx($src1), imagesy($src1), 100);
-    header("Content-type: image/png");
+    ob_start();
     imagepng($dest);
+    $image_data = ob_get_contents();
+    ob_end_clean();
+    $image_data = 'data:image/png;base64,' . base64_encode($image_data);
+    if (auth::add_picture($image_data) == TRUE)
+    {
+        unlink("pictures/users/tmp.png");
+        header("Location: webcam.php");
+    }
+    else
+    {
+        echo "Error\n";
+        unlink("pictures/users/tmp.png");
+    }
     imagedestroy($dest);
     imagedestroy($src1);
-    // supprimer l'image temporaire
 }
 
 if ($_POST['filter'] == "spliff")
 {
-    $src = $_POST['image'];
+    if ($_POST['filter2'])
+        $choice = $_POST['filter2'];
+    if (is_post_file($_FILES) == FALSE)
+    {
+        $src = $_POST['image'];
+    }
+    else
+    {
+        check_format($_FILES);
+        $src = file_get_contents($_FILES['upload_photo']['tmp_name']);
+        $src = 'data:image/png;base64,' . base64_encode($src);
+    }
     $src = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $src));
     file_put_contents("pictures/users/tmp.png", $src);
     $src1 = imagecreatefrompng("pictures/site/filtres/blunt.png");

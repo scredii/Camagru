@@ -3,7 +3,34 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-
+.filter
+{
+	display: inline-block;
+	margin-left: 100px;
+	margin-top: 100px;
+}
+#pupload
+{
+			position:inline; 
+	
+	border-radius: 10px;
+	border: 2px solid green;
+}
+/*header
+{*/
+	/*height: 7vmin;
+	border-radius: 0 0 10px 10px;
+			background-color: #66cccc;*/
+/*}*/
+.pupload
+{
+	/*width: 2px;*/
+	display: block;
+	float:left;
+	margin-left: 10px;
+	margin-top: 150px;
+	margin-bottom: 150px;
+}
 body {
   padding: 20px 15%;
 }
@@ -108,7 +135,7 @@ textarea:focus {
 		{
 			background-color: #66cccc;
 			         /*background     : transparent url("adresse de l'image transparente") repeat ;*/
-			/*background-image: url("pictures/site/green_dust_scratch.png");			*/
+			background-image: url("https://webdesignerdepot.s3.amazonaws.com/default-images/29.jpg");			
 			font-family: Verdana, Geneva, Tahoma, sans-serif;
 			font-size: small;
 			/*font-style: oblique;*/
@@ -123,21 +150,21 @@ textarea:focus {
 		}
 		footer
 		{
-			position: absolute; 
+			position: fixed; 
 			bottom: 0;
 		}
 		.logofor
 		{
 			width: 5em;
 		}
-		/*#forty
+		#forty
 		{
 			margin:  0px 0px 0px;			
-		}*/
-		/*.submit
+		}
+		.submit
 		{
 			margin-left: 100px;	
-		}*/
+		}
 		.form1
 		{
 			margin-bottom: 200px;
@@ -321,7 +348,15 @@ textarea:focus {
 		/*canvas {
 			display: none;
 		}*/
-		video, #startbutton 
+		video
+		{
+			width: 500px;
+			border-radius: 10px;
+			/*display: flex;
+			align-content: center;*/
+			
+		}
+		/*video, #startbutton 
 		{
 			display: block;
 			float: left;
@@ -337,7 +372,8 @@ textarea:focus {
 			margin: 100px 20px 20px 20px;
 			padding: 10px 20px;
 			font-size: 20px;
-		}
+		}*/
+		
 		#container
 		{
 			overflow: hidden;
