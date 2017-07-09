@@ -67,16 +67,22 @@ catch (PDOException $e)
 {
     echo 'Connection failed: ' . $e->getMessage();
 }
-$picture = $db->query('SELECT * FROM picture');
+$username = $_SESSION['auth']['login']; 
+$picture = $db->query('SELECT * FROM picture WHERE username = "' . $username . '" ');
 while (($test = $picture->fetch()))
 {
             $titi[] = $test;
 }
+if ($titi)
+{
 $i = 0;
+
 echo 	'<div class="pupload">';
-$test = fopen("pictures/users/".$titi[$i]['picture']);
-echo $test;
-while($titi[$i] && $i < 5)
+?>
+<h2>Mes photos</h2>
+<?php
+$test = fopen("pictures/users/".$titi[$i]['picture'], "r");
+while($titi[$i] )
 {
 	$tof = file_get_contents("pictures/users/".$titi[$i]['picture']);
 	?>
@@ -84,7 +90,14 @@ while($titi[$i] && $i < 5)
 	<?php
 $i++;
 }
+?>
+			<p>
+            <a  id="lost_account" href="gallery.php">Voir toute la gallerie</a>
+			</p>	
+<?php
 	echo "</div>";
+}
+
 
 ?>   
 </div>

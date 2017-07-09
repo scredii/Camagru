@@ -42,7 +42,7 @@
 </html>
 
 <?php
-session_start();
+// session_start();
 require("auth.php");
 if ($_POST['submit'] == "OK" && $_POST['password'] != "" && $_POST['email'] != "" && $_POST['username'] != "" && $_POST['password_confirm'] != "")
 {
@@ -115,6 +115,6 @@ if ($_POST['submit'] == "OK" && $_POST['password'] != "" && $_POST['email'] != "
 			echo "</pre>";
 		}
 }
-else
-	header("Location: subscribe.html")
+// else
+// 	header("Location: subscribe.html")
 ?>

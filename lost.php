@@ -24,10 +24,6 @@ include('header.html');
         </div>
         </div>
         </div>
-            
-        <div class="lost_account">
-            <a id="create_account" href="http://localhost:8888/camagru/index.php">Retour</a>
-        </div>
     </body>
     <?php include("footer.html"); ?>
 </html>
@@ -38,7 +34,7 @@ if ($_POST['submit'] == "OK" && $_POST['email'] != "")
     if(empty($_POST['email']) || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))
     {
 		echo "Votre email n'est pas valide";
-        echo "<br><br><a href='http://localhost:8888/camagru/index.php'>Retourner au menu principal</a>";        
+        echo "<br><br><a href='index.php'>Retourner au menu principal</a>";        
         die();
     }
     try
@@ -73,17 +69,17 @@ if ($_POST['submit'] == "OK" && $_POST['email'] != "")
         
         mail($email2, $subject, $message, $entete) ;
 	    echo "Un mail de reinitialisation vient de vous etre envoyé";
-        echo "<br><br><a href='http://localhost:8888/camagru/index.php'>Retourner au menu principal</a>";
+        echo "<br><br><a href='index.php'>Retourner au menu principal</a>";
 	}
     else
     {
         echo "Email non reconnu.\n";
-        echo "<br><br><a href='http://localhost:8888/camagru/index.php'>Retourner au menu principal</a>";        
+        echo "<br><br><a href='index.php'>Retourner au menu principal</a>";        
         die();
     }
 }
-else
-{
-    header("Location: lost.html");
-}
+// else
+// {
+//     header("Location: lost.html");
+// }
 ?>
