@@ -1,18 +1,25 @@
+<!DOCTYPE HTML>
 <html>
-    <header>
-            <a class="tit" href="http://localhost:8888/camagru/index.php"><img class="cama" src="pictures/site/cama_log.png" alt="camagru_logo"></a><br/><br/>
+	<head>
+		    <meta charset="utf-8"/>
             <style type="text/css">@import url("./style.css");</style>
-            <title>Camagru</title>
             <script type="text/javascript" src="alert.js"></script>
+	</head>
+    <header>
+	<?php
+		include('header.html');
+	?>
     </header>
     <body>
-        <center>
-            <div align="center" class="all_form">
+            <div class="grandform">
+				        <div align="center" class="all_form">
+							            <div class="account-form">
+									<h2> S'inscrire </h2>
 	        	<form method="POST" action="#" onsubmit="return verifForm(this)"> 
-					<input type="mail" id="email" name="email" onblur="verifMail(this)" placeholder="E-mail"/>
+					<input type="mail" id="email" name="email" onblur="verifMail(this)" placeholder="E-mail" />
 					<br/>
                 	<br/> 
-					<input type="text" id="username" name="username" onblur="verifPseudo(this)" placeholder="Login"/>
+					<input type="text" id="username" name="username" onblur="verifPseudo(this)" placeholder="Login" />
 					<br>
 					<br/>
 					<input onblur="verifPasswd(this)" type="password" id="password" name="password" placeholder="Password"/>
@@ -21,14 +28,15 @@
 					<input onblur="verifPasswd(this)" type="password" name="password_confirm" id="password_confirm" placeholder="Confirm password"/>
 					<br>
 					<br/>
-					<div class="submit">
+					<!--<div class="submit">-->
 					<input type="submit" id="submit" name="submit" value="OK">
     	    	</form>
-        	</div>
-        </center>
-        <div class="lost_account">
-            <a id="create_account" href="http://localhost:8888/camagru/index.php">Retour</a>
         </div>
+        </div>				
+        	<!--</div>-->
+        <!--<div class="lost_account">
+            <a id="create_account" href="http://localhost:8888/camagru/index.php">Retour</a>
+        </div>-->
     </body>
 	<?php include("footer.html"); ?>
 </html>

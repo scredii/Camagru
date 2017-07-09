@@ -3,15 +3,60 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+#username, #password, #password_confirm, #email
+{
+	height: 30px;
+	padding: 9px 9px;
+	/*border-color: #ddd;*/
+	margin-bottom: 10px;
+	vertical-align: middle;
+	/*box-shadow: 0 1px 0px 0 rgba(0,0,0,0.02) inset;*/
+}
+input
+{
+	box-sizing: border-box;
+	/*width: 100%;*/
+}
 .filter
 {
-	display: inline-block;
-	margin-left: 100px;
-	margin-top: 100px;
+	border: 1px solid black;
+	display: block;
+	font-weight: 300;
+	margin-top: -285px;
+	margin-left: 350px;
+	width: 150px;
+	height: 250px;
+	/*margin-left: 100px;
+	margin-top: 100px;*/
+}
+#upload_photo
+{
+	width: 160px;
+	    line-height: 1.2;
+				font-weight: 400;
+			background-color: #007feb;
+			border: 1px solid transparent;
+			border-radius: 4px;
+			color: #fff;
+			cursor: pointer;
+	/*margin-bottom: 400px;*/
+
+}
+/*.shot
+{
+	margin-top: 50px;
+}*/
+.upload_photo
+{
+	font-weight: 300;
+	color:#3E4552;
+	    margin-right: 240px;
+	    line-height: 1.2;
+/*margin: 20px 20px 0 0;*/
 }
 #pupload
 {
-			position:inline; 
+			/*position:inline; */
 	
 	border-radius: 10px;
 	border: 2px solid green;
@@ -24,12 +69,14 @@
 /*}*/
 .pupload
 {
-	/*width: 2px;*/
+	width: 250px;
+	border: 2px solid green;
+	/*width: 40%;*/
 	display: block;
-	float:left;
-	margin-left: 10px;
+	float:right;
+	/*margin-left: 10px;
 	margin-top: 150px;
-	margin-bottom: 150px;
+	margin-bottom: 150px;*/
 }
 body {
   padding: 20px 15%;
@@ -41,7 +88,36 @@ form header div {
   font-size: 90%;
   color: #999;
 }
-form header h2 {
+.conteneur
+{
+	/*margin: 0;*/
+	margin-top: -20px;
+	/*margin-left: -250px;*/
+}
+.conteneur1
+{
+	margin-top: -24px;
+	margin-left: 100px;
+}
+h3
+{
+		font-family: 'proxima-nova','Helvetica Neue',Helvetica,Arial,sans-serif;
+	/*margin: 20px 0;*/
+	font-size: 15px;
+	line-height: 1.2;
+	color: #3E4552;
+	font-weight: 200;
+}
+h2
+{
+	font-family: 'proxima-nova','Helvetica Neue',Helvetica,Arial,sans-serif;
+	margin: 20px 0;
+	font-size: 20px;
+	line-height: 1.2;
+	color: #3E4552;
+	font-weight: 300;
+}
+form header  {
   margin: 0 0 5px 0;
 }
 form > div {
@@ -55,8 +131,8 @@ form > div > fieldset > div > div {
 }
 form > div > label,
 legend {
-	width: 25%;
-  float: left;
+	/*width: 25%;*/
+  /*float: left;*/
   padding-right: 10px;
 }
 form > div > div,
@@ -73,7 +149,7 @@ fieldset {
 }
 #email
 {
-	width: 50%;
+	width: 100%;
 }
 input[type=text],
 input[type=email],
@@ -86,12 +162,7 @@ textarea {
   border-right: 1px solid #eee;
   border-bottom: 1px solid #eee;
 }
-input[type=text],
-input[type=email],
-input[type=url],
-input[type=password] {
-  width: 50%;
-}
+
 input[type=text]:focus,
 input[type=email]:focus,
 input[type=url]:focus,
@@ -133,10 +204,11 @@ textarea:focus {
 }
 		html
 		{
-			background-color: #66cccc;
+			/*background-color: #66cccc;*/
+			background: #f8f8f8;
 			         /*background     : transparent url("adresse de l'image transparente") repeat ;*/
-			background-image: url("https://webdesignerdepot.s3.amazonaws.com/default-images/29.jpg");			
-			font-family: Verdana, Geneva, Tahoma, sans-serif;
+			/*background-image: url("https://webdesignerdepot.s3.amazonaws.com/default-images/29.jpg");			*/
+			font-family: 'proxima-nova','Helvetica Neue',Helvetica,Arial,sans-serif;
 			font-size: small;
 			/*font-style: oblique;*/
 			height: 100%;
@@ -148,6 +220,7 @@ textarea:focus {
 			padding: 0;
 			position: relative;
 		}
+		
 		footer
 		{
 			position: fixed; 
@@ -165,8 +238,31 @@ textarea:focus {
 		{
 			margin-left: 100px;	
 		}
+		.account-form
+		{
+			width: 500px;
+			 background: #FFFFFF;
+    -webkit-box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+    box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.07);
+    padding: 20px 40px 30px;
+    border-radius: 1px;
+		}
+				.account-form1
+		{
+			width: 700px;
+			height: 400px;
+			margin-left: 20px;
+			 background: #FFFFFF;
+    -webkit-box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+    box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.07);
+    padding: 20px 40px 30px;
+    border-radius: 1px;
+		}
 		.form1
 		{
+			border: 1px solid black;
 			margin-bottom: 200px;
 			    /*width:105px;*/
     /*margin:0 auto;*/
@@ -194,7 +290,7 @@ textarea:focus {
 		}
 		h1
 		{
-			font-family: Verdana, Geneva, Tahoma, sans-serif;
+			font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 			font-size: small;
 			/*font-style: oblique;*/
 			width: 10px;
@@ -225,31 +321,49 @@ textarea:focus {
 		}
 		label
 		{
-			display: block;
+			/*display: block;*/
 			/*position: relative;*/
-			float: left;
-			width: 15vmin;
+			/*float: left;*/
+			/*width: 15vmin;
+			PEUT ETRE A REMETTRE
+			*/
+
 		}
-		.lost_account
+		/*.lost_account
 		{
 			position: absolute; 
 			top: 6px;
-			right: 10px;
+			right: 10px;*/
 			/*margin: 0 auto;*/
 			/*width: 200px; */
-		}
+		/*}*/
 		.create_account
 		{
 			   /*width: 100%;*/
 			position: absolute; 
-			top: 6px;
-			right: 200px;
+			top: 20px;
+			right: 0;
+			margin-right: 15px;
 			/*margin: 25px auto;
 			width: 200px; */
 		}
 		#create_account
 		{
-			background-color: #007feb;
+			    color: rgba(255,255,255,0.95);
+    font-weight: 600;
+    text-shadow: none;
+    text-decoration: none;
+    padding: 8px 10px;
+    font-size: 13px;
+    margin: 0px 0px 0px 5px;
+    border-radius: 2px;
+		    background: transparent;
+    border: 2px solid #fff;
+		line-height: 20px;
+    text-align: center;
+		vertical-align: middle;
+    cursor: pointer;
+			/*background-color: #007feb;
 			border: 1px solid transparent;
 			border-radius: 4px;
 			color: #fff;
@@ -262,14 +376,45 @@ textarea:focus {
 			margin: 0;
 			padding: 7px 12px;
 			position: relative;
-			text-align: center;
+			text-align: center;*/
 			/*vertical-align: middle;*/
-			transition-duration: .15s;
-			transition-property: background-color,border-color,color,opacity;	
+			/*transition-duration: .15s;
+			transition-property: background-color,border-color,color,opacity;	*/
+		}
+		.nav_bar
+		{
+			/*background: #66cccc;*/
+			background: #007feb;
+			padding: 2px 0;
+			height: 70px;
+		}
+		.grandform
+		{
+			margin: 40px auto;
+			display: block;
+			text-align: center;
+		}
+				.grandform1
+		{
+			margin: 40px auto;
+			display: block;
+			text-align: left;
+		}
+		.extraform
+		{
+			display: block;
+			text-align: center;
+    padding: 30px 0 0;
+    font-size: 13px;
 		}
 		#lost_account
 		{
-			text-decoration:none;
+			padding: 30px 0 0 0;
+		text-align: center;
+			    color: #484c57;
+    text-decoration: none;
+		line-height: 1.4;
+			/*text-decoration:none;
 			background-color: #007feb;
 			border: 1px solid transparent;
 			border-radius: 4px;
@@ -285,10 +430,16 @@ textarea:focus {
 			text-align: center;
 			vertical-align: middle;
 			transition-duration: .15s;
-			transition-property: background-color,border-color,color,opacity;	
+			transition-property: background-color,border-color,color,opacity;	*/
 		}
-		#submit
+		#startbutton
 		{
+		    margin-bottom: -16vmin !important;
+    margin-left: -70px !important;
+		}
+		#submit, #startbutton
+		{
+			font-weight: 400;
 			background-color: #007feb;
 			border: 1px solid transparent;
 			border-radius: 4px;
@@ -303,7 +454,6 @@ textarea:focus {
 			text-align: center;
 			vertical-align: middle;
 			transition-duration: .15s;
-			transition-property: background-color,border-color,color,opacity;
 		}
 		.confirm
 		{
@@ -343,17 +493,28 @@ textarea:focus {
 			display: block;
 			margin-left: auto;
     		margin-right: auto;
+				margin-top: 10px;
     		width: 13em;
 		}
 		/*canvas {
 			display: none;
 		}*/
+		.leform
+		{
+			display: block;
+			margin-top: 50px;
+border: 3px solid black;
+/*width: 60%;*/
+height: 100%;
+		}
 		video
 		{
-			width: 500px;
+			/*width: 500px;*/
+			/*margin-left: -100px;*/
+			border: 1px solid #007feb;
 			border-radius: 10px;
 			/*display: flex;
-			align-content: center;*/
+			align-content: left;*/
 			
 		}
 		/*video, #startbutton 
@@ -363,8 +524,16 @@ textarea:focus {
 			margin-top: 60px;
 			margin-left: 30px;
 			border-radius: 10px;
+		}*/
+				video,
+		{
+			display: block;
+			float: left;
+			margin-top: 60px;
+			margin-left: 30px;
+			/*border-radius: 10px;*/
 		}
-		#startbutton 
+		/*#startbutton 
 		{
 			background: green;
 			border: none;

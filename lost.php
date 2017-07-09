@@ -1,21 +1,30 @@
 <!DOCTYPE html>
 <html>
-    <header>
+    <head>
             <meta charset="utf-8"/>
-            <title>Camagru</title>
-            <a class="tit" href="http://localhost:8888/camagru/index.php"><img class="cama" src="pictures/site/cama_log.png" alt="camagru_logo"></a><br/><br/>
             <style type="text/css">@import url("./style.css");</style>
             <script type="text/javascript" src="alert.js"></script>
+    </head>    
+    <header>
+<?php
+include('header.html');
+?>
     </header>
     <body>
-        <center>
+            <div class="grandform">
+				        <div align="center" class="all_form">
+							            <div class="account-form">
+                                            <h2>Retrouver mon mot de passe</h2>
 	        <form method="POST" action="#" onsubmit="return verifForm(this)">  
-	            E-mail: <input type="mail" name="email" onblur="verifMail(this)"/>
+	            <input type="mail" id="email" name="email" onblur="verifMail(this)" placeholder="E-mail du compte perdu"/>
                 <br>
                 <br>
     		    <input type="submit" id="submit" name="submit" value="OK">
 	        </form>
-        </center>
+        </div>
+        </div>
+        </div>
+            
         <div class="lost_account">
             <a id="create_account" href="http://localhost:8888/camagru/index.php">Retour</a>
         </div>

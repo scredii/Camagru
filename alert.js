@@ -11,7 +11,6 @@ function verifPseudo(champ)
    if(champ.value.length < 2 || champ.value.length > 25)
    {
       surligne(champ, true);
-      write("Pseudo incorrect");
       return false;
    }
    else

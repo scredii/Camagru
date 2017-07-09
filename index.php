@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html>
-    <header>
-            <meta charset="utf-8"/>
-            <title>Camagru</title>
-            <a class="tit" href="http://localhost:8888/camagru/index.php"><img class="cama" src="pictures/site/cama_log.png" alt="camagru_logo"></a><br/><br/>
+	<head>
             <style type="text/css">@import url("./style.css");</style>
             <script type="text/javascript" src="alert.js"></script>
+	</head>
+    <header>
+	<?php
+		include('header.html');
+	?>
     </header>
     <body>
-        <center>
+        <!--<center>-->
+		<div class="grandform">
         <div align="center" class="all_form">
-            <div class="form1">
+            <div class="account-form">
+            <!--<div class="form1">-->
+				<h2>Se connecter</h2>
                 <form method="POST" action="camagru.php">
 						<input type="text" id="username" name="login" placeholder="Login"/>
                         <br>
@@ -20,19 +25,23 @@
                         <br/>
                         <br>
                         <br/>
-                        <div class="submit">
+                        <!--<div class="submit">-->
                             <input type="submit" id="submit"  name="submit" value="OK">
-                        </div>
+                        <!--</div>-->
                 </form>
             </div>
-            </center>
-            <div class="create_account">
-            <a id="create_account" href="http://localhost:8888/camagru/subscribe.php">Créer mon compte</a>
-            </div>
-            <br>
-            <div class="lost_account">
+            <!--</center>-->
+			<div class"extraform">
+			<p>
             <a id="lost_account" href="http://localhost:8888/camagru/lost.php">Mot de passe oublié ?</a>
-            </div>
+			</p>				
+			</div>
+			</div>
+
+            <br>
+            <!--<div class="lost_account">
+            <a id="lost_account" href="http://localhost:8888/camagru/lost.php">Mot de passe oublié ?</a>
+            </div>-->
     </body>
     <footer>
     <div class="forty">
