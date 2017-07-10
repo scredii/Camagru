@@ -16,10 +16,15 @@ if (auth::isLogged() == FALSE)
 </head>
 <header>
     <?php
-    include('header.html');
+    include('header2.php');
     ?>
     </header>
   <body>
+      <div class="menu1">
+        <div class="menu2">
+            <div class="moncompte" role="button">Mon compte</div>
+        </div>
+      </div>
       <div class="grandform1">
         <div class="all_form">
                       <div class="account-form1">
