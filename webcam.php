@@ -22,7 +22,9 @@ if (auth::isLogged() == FALSE)
   <body>
       <div class="menu1">
         <div class="menu2">
-            <div class="moncompte" role="button">Mon compte</div>
+                <a style=" border-right : 1px solid grey;" href="/My_account.php" class="header-nav-link">Mon compte</a>
+                <a href="galery.php" style=" border-right : 1px solid grey;" class="header-nav-link1">Galerie</a>
+                <a href="logout.php" style=" border-right : 1px solid grey;" class="header-nav-link2">Deconnexion</a>                
         </div>
       </div>
       <div class="grandform1">
@@ -84,10 +86,10 @@ $i = 0;
 
 echo 	'<div class="pupload">';
 ?>
-<h2>Mes photos</h2>
+<h2> Apercu</h2>
 <?php
 $test = fopen("pictures/users/".$titi[$i]['picture'], "r");
-while($titi[$i] )
+while($titi[$i] && $i < 4)
 {
 	$tof = file_get_contents("pictures/users/".$titi[$i]['picture']);
 	?>
@@ -97,7 +99,7 @@ $i++;
 }
 ?>
 			<p>
-            <a  id="lost_account" href="gallery.php">Voir toute la gallerie</a>
+            <a  id="lost_account" href="galery.php">Voir toute la galerie</a>
 			</p>	
 <?php
 	echo "</div>";
