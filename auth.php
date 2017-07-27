@@ -101,37 +101,55 @@ class auth
 		{
 			$db = new PDO('mysql:host=localhost;dbname=cama_base','root','root');
 			$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			return ($db);
 		}
 		catch (PDOException $e) 
 		{
 			echo 'Connection failed: ' . $e->getMessage();
 		}
 	}
-}
 
-// function add_picture($picture)
-// {
-//     // if (auth::islogged())
-//     // {
-//         print_r($_SESSION);
-//         $username = $_SESSION['auth']['login'];
-//         try
-//         {
-//             $db = new PDO('mysql:host=localhost;dbname=cama_base','root','root');
-//             $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-//         }
-//         catch (PDOException $e) 
-//         {
-//             echo 'Connection failed: ' . $e->getMessage();
-//         }
-//         $values = array($picture, $username);
-// 		$req = $db->prepare('INSERT INTO picture (picture, username) VALUES (?, ?)');
-// 		if ($req->execute($values))
-//             return (TRUE);
-//         else
-//             return (FALSE);
-//     // }
-//     // else
-//     //     return (FALSE);
-// }
+	function is_like($donnees)
+	{
+		try
+		{
+			$db = new PDO('mysql:host=localhost;dbname=cama_base','root','root');
+			$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		}
+		catch (PDOException $e) 
+		{
+			echo 'Connection failed: ' . $e->getMessage();
+		}
+		$stmt = $db->prepare("SELECT * FROM likes WHERE id_picture = :id_picture AND username = :username");
+		$stmt->bindParam(':id_picture', $donnees['id'], PDO::PARAM_INT);
+		$stmt->bindParam(':username', $_SESSION['auth']['login'], PDO::PARAM_INT);
+		if ($stmt->execute())
+		{
+			while ($row = $stmt->fetch()) 
+			{
+				// print_r($row);
+				return (TRUE);
+			}
+			return (FALSE);
+		}
+		else
+			return (FALSE);
+	}
+
+	function count_like($donnees)
+	{
+		try
+		{
+			$db = new PDO('mysql:host=localhost;dbname=cama_base','root','root');
+			$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		}
+		catch (PDOException $e) 
+		{
+			echo 'Connection failed: ' . $e->getMessage();
+		}
+		$id = $donnees['id'];
+		$nbr_like =  $db->query("SELECT COUNT(*) FROM likes WHERE id_picture = $id")->fetchColumn();
+		return ($nbr_like);
+	}
+}
 ?>

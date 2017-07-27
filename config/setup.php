@@ -15,8 +15,12 @@ try {
     echo "- Creating Tables \n";
     $create = "CREATE TABLE IF NOT EXISTS users (id INT(16) PRIMARY KEY NOT NULL AUTO_INCREMENT, username VARCHAR(255) NOT NULL, email VARCHAR(255) NOT NULL, password VARCHAR(255) NOT NULL, token VARCHAR(255) NOT NULL, actif int(16) NOT NULL);" ;
     $create2 = "CREATE TABLE IF NOT EXISTS picture (id INT(16) PRIMARY KEY NOT NULL AUTO_INCREMENT,`picture` LONGTEXT NOT NULL, username VARCHAR(255) NOT NULL);";
+    $create3 = "CREATE TABLE IF NOT EXISTS comments (id INT(16) PRIMARY KEY NOT NULL AUTO_INCREMENT, id_picture INT(16), username VARCHAR(255) NOT NULL, comments TEXT,date_comm datetime);";
+    $create4 = "CREATE TABLE IF NOT EXISTS likes (id INT(16) PRIMARY KEY NOT NULL AUTO_INCREMENT, id_picture INT(16), username VARCHAR(255) NOT NULL);";
     $db->exec($create);
     $db->exec($create2);
+    $db->exec($create3);
+    $db->exec($create4);
     echo " -- DB and Tables ok ";
     if (!file_exists("../pictures"))
     {

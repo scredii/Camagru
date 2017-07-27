@@ -1,47 +1,39 @@
 <!DOCTYPE html>
 <html>
 	<head>
-            <style type="text/css">@import url("./style.css");</style>
-            <script type="text/javascript" src="alert.js"></script>
+			<meta charset="utf-8"/>
+			<style type="text/css">@import url("./style.css");</style>
+			<script type="text/javascript" src="alert.js"></script>
 	</head>
-    <header>
+	<header>
 	<?php
-		 include('header.html');
+		 include('header2.php');
 	?>
-    </header>
-    <body>
-        <!--<center>-->
+	</header>
+	<body>
 		<div class="grandform">
-        <div align="center" class="all_form">
-            <div class="account-form">
-            <!--<div class="form1">-->
-				<h2>Se connecter</h2>
-                <form method="POST" action="camagru.php">
+			<div align="center" class="all_form">
+				<div class="account-form">
+					<h2>Se connecter</h2>
+				<form method="POST" action="camagru.php">
 						<input type="text" id="username" name="login" placeholder="Login"/>
-                        <br>
-                        <br/>
+						<br>
+						<br/>
 						<input type="password" id="password" name="passwd" placeholder="Password"/>
-                        <br>
-                        <br/>
-                        <br>
-                        <br/>
-                        <!--<div class="submit">-->
-                            <input type="submit" id="submit"  name="submit" value="OK">
-                        <!--</div>-->
-                </form>
-            </div>
-            <!--</center>-->
+						<br>
+						<br/>
+						<br>
+						<br/>
+							<input type="submit" id="submit"  name="submit" value="OK">
+				</form>
+			</div>
 			<div class"extraform">
 			<p>
-            <a id="lost_account" href="lost.php">Mot de passe oublié ?</a>
+			<a id="lost_account" href="lost.php">Mot de passe oublié ?</a>
 			</p>				
 			</div>
 			</div>
-
             <br>
-            <!--<div class="lost_account">
-            <a id="lost_account" href="http://localhost:8888/camagru/lost.php">Mot de passe oublié ?</a>
-            </div>-->
     </body>
     <footer>
     <div class="forty">
@@ -49,7 +41,6 @@
 </div>
 </footer>
 </html>
-
 <?php
 // session_start();
 // require("auth.php");

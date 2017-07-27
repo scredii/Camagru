@@ -11,8 +11,7 @@ if (auth::isLogged() == FALSE)
 <html lang="fr">
 <head>
 	<meta charset="UTF-8">
-  <!--<a class="power" href="http://localhost:8888/camagru/logout.php"><img class="power" src="pictures/site/power_logo.png" alt="logout"></a><br/><br/>-->
-  <style type="text/css">@import url("style.css");</style>
+<style type="text/css">@import url("style.css");</style>
 </head>
 <header>
     <?php
@@ -20,15 +19,17 @@ if (auth::isLogged() == FALSE)
     ?>
     </header>
   <body>
-      <div class="menu1">
+      <div class="title_gal3" ><center><h2>Prendre des photos</h2></center></div>
+
+      <!--<div class="menu1">
         <div class="menu2">
                 <a style=" border-right : 1px solid grey;" href="/My_account.php" class="header-nav-link">Mon compte</a>
                 <a href="galery.php" style=" border-right : 1px solid grey;" class="header-nav-link1">Galerie</a>
-                <a href="logout.php" style=" border-right : 1px solid grey;" class="header-nav-link2">Deconnexion</a>                
+                <a href="logout.php" style=" border-right : 1px solid grey;" class="header-nav-link2">Déconnexion</a>                
         </div>
-      </div>
+      </div>-->
       <div class="grandform1">
-        <div class="all_form">
+        <div class="all_form_4">
                       <div class="account-form1">
                           <div class="conteneur">
         <h2>Utilise ta webcam...  Ou upload ta photo !</h2>
@@ -75,7 +76,7 @@ catch (PDOException $e)
     echo 'Connection failed: ' . $e->getMessage();
 }
 $username = $_SESSION['auth']['login']; 
-$picture = $db->query('SELECT * FROM picture WHERE username = "' . $username . '" ');
+$picture = $db->query('SELECT * FROM picture WHERE username = "' . $username . '"ORDER BY id DESC');
 while (($test = $picture->fetch()))
 {
             $titi[] = $test;
@@ -86,14 +87,14 @@ $i = 0;
 
 echo 	'<div class="pupload">';
 ?>
-<h2> Apercu</h2>
+<h2>Apercu de la galerie</h2>
 <?php
 $test = fopen("pictures/users/".$titi[$i]['picture'], "r");
 while($titi[$i] && $i < 4)
 {
 	$tof = file_get_contents("pictures/users/".$titi[$i]['picture']);
 	?>
-	<img width="150px" id="pupload" src="<?php echo  $tof; ?>" />
+	<img width="150px" height="113px" id="pupload" src="<?php echo  $tof; ?>" />
 	<?php
 $i++;
 }
@@ -104,6 +105,8 @@ $i++;
 <?php
 	echo "</div>";
 }
+else
+    echo "pas encore de photos !";
 
 
 ?>   

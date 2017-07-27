@@ -12,6 +12,14 @@
 	vertical-align: middle;
 	/*box-shadow: 0 1px 0px 0 rgba(0,0,0,0.02) inset;*/
 }
+.aff_comme
+{
+	margin-left: 200px;
+}
+.lagalery
+{
+	margin-left: 40px;
+}
 input
 {
 	box-sizing: border-box;
@@ -19,7 +27,6 @@ input
 }
 .filter
 {
-	border: 1px solid black;
 	display: block;
 	font-weight: 300;
 	margin-top: -285px;
@@ -31,6 +38,7 @@ input
 }
 .header-nav-link 
 {
+	font-family: 'proxima-nova','Helvetica Neue',Helvetica,Arial,sans-serif;
 	width: 130px;
     display: block;
     padding: 20px 20px;
@@ -41,6 +49,7 @@ input
 }
 .header-nav-link1 
 {
+	font-family: 'proxima-nova','Helvetica Neue',Helvetica,Arial,sans-serif;
     display: block;
 	width: 130px;	
 	margin-top: -60px !important;
@@ -53,6 +62,8 @@ input
 }
 .header-nav-link2 
 {
+	line-height: 1.2;
+	font-family: 'proxima-nova','Helvetica Neue',Helvetica,Arial,sans-serif;
     display: block;
 	width: 130px;	
 	margin-top: -60px !important;
@@ -96,6 +107,14 @@ z-index: 2;
     border: 1px solid #DAE1E9;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
     background-color: #FFFFFF;
+}
+.msg
+{
+	/*border: 1px solid blue;*/
+	    box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+    border: 1px solid rgba(0,0,0,0.07);
+    padding: 2px 4px 3px;
+    border-radius: 1px;
 }
 .moncompte
 {
@@ -150,6 +169,15 @@ position: relative;
     border-radius: 50%;
     background-color: #FFFFFF;*/
 }
+.title_gal
+{
+	margin-bottom: -20px !important;
+	margin-left: 55px !important;
+}
+.testdiv
+{
+	margin-left: -500px;
+}
 .myaccount
 {
 	position: relative;
@@ -159,6 +187,22 @@ position: relative;
     font-size: 14px;
     font-weight: 500;
     color: #FFFFFF;
+}
+#pupload1
+{
+
+    /*margin-left: -130px;*/
+	/*padding: 0;*/
+	display: block;
+	/*position: inline;*/
+	/*top: -260px;*/
+	/*left: 0;
+	text-align: left;*/
+	/*margin-top: -200px;*/
+	/*float: left;*/
+	border-radius: 10px;
+	border: 1px solid #007feb;;
+	/*position: relative;*/
 }
 #pupload
 {
@@ -187,11 +231,34 @@ position: relative;
 
 
 
-	width: 250px;
+	width: 450px;
 	/*border: 2px solid green;*/
 	/*width: 40%;*/
 	display: block;
 	float:right;
+	/*margin-left: 10px;
+	margin-top: 150px;
+	margin-bottom: 150px;*/
+}
+.pupload1
+{
+	/*width: 500px;*/
+	background: #FFFFFF;
+	/*margin-top: 50px;*/
+	margin-right: 50px;
+	margin-left: 50px;
+	margin-bottom: 80px;
+	-webkit-box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+	box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+	border: 1px solid rgba(0,0,0,0.07);
+    padding: 30px 30px 30px;
+    border-radius: 1px;
+	width: 90%;
+	/*height: 1100px;*/
+	/*border: 2px solid green;*/
+	/*width: 40%;*/
+	display: block;
+	/*text-align:left;*/
 	/*margin-left: 10px;
 	margin-top: 150px;
 	margin-bottom: 150px;*/
@@ -356,17 +423,46 @@ textarea:focus {
 		{
 			margin-left: 100px;	
 		}
+		textarea
+		{
+			resize: none;
+			width: 250px !important;
+		}
 		.account-form
 		{
 			width: 500px;
 			 background: #FFFFFF;
-    -webkit-box-shadow: 0 1px 5px rgba(0,0,0,0.05);
-    box-shadow: 0 1px 5px rgba(0,0,0,0.05);
-    border: 1px solid rgba(0,0,0,0.07);
-    padding: 20px 40px 30px;
-    border-radius: 1px;
+			-webkit-box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+			box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+			border: 1px solid rgba(0,0,0,0.07);
+			padding: 20px 40px 30px;
+			border-radius: 1px;
+		}		
+		.ret_pic
+		{
+			/*position: absolute;*/
+			/*padding: 5px;*/
+	 		display: inline-block;
+			/*top: 0;*/
+			padding-top: 20px;
+			padding-left: 20px;
+			/*margin-left: -40px;*/
 		}
-				.account-form1
+		
+		.account-form2
+		{
+			width: 800px;
+			height: 400px;
+			display: inline-table;
+			background: #FFFFFF;
+			-webkit-box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+			box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+			border: 1px solid rgba(0,0,0,0.07);
+			/*padding: 20px 40px 30px;*/
+			border-radius: 1px;
+		}
+
+		.account-form1
 		{
 			width: 700px;
 			height: 400px;
@@ -413,13 +509,18 @@ textarea:focus {
 			/*font-style: oblique;*/
 			width: 10px;
 		}
-		.all_form
+		.all_form_4
 		{
-    /*max-width:100vmin;*/
+			max-width:100vmin;
 			display: inline-block;
-	/*float: center;*/
-    /*background-color:black;*/
-    /*height:30vmin;*/
+			/*float: center;*/
+	    	/*background-color:black;*/
+    		height:30vmin;
+		}
+		.all_form2
+		{
+     margin: 0 auto;
+     width: 100px; 
 		}
 		.form2
 		{
@@ -433,9 +534,9 @@ textarea:focus {
 			/*margin: auto;*/
 			/*display: right;*/
 			/*/*width:500px;*/
-			    width:75vmin;
-    /*margin:0 auto;*/
-    height:40vmin;
+			width:75vmin;
+			/*margin:0 auto;*/
+			height:40vmin;
 		}
 		label
 		{
@@ -499,10 +600,32 @@ textarea:focus {
 			/*transition-duration: .15s;
 			transition-property: background-color,border-color,color,opacity;	*/
 		}
+		.form_com
+		{
+			margin-top: -20px;
+			display: block;
+			position: absolute;
+			right: 0;
+			margin-right: 285px;
+			/*padding: 10px;*/
+			/*float: right;
+			display: block;
+			margin-top: 110px;*/
+			/*margin-top: -60px;*/
+			/*height: 300px;
+    margin-right: 144px;
+    margin-top: 20px;*/
+    /* height: 150px; */
+    /*display: block;
+    overflow: auto;
+    float: right;
+    width: 250px;
+    line-height: 1.75;*/
+		}
 		.nav_bar
 		{
 			/*background: #66cccc;*/
-			background: #007feb;
+			background: #0667D0;
 			padding: 2px 0;
 			height: 70px;
 		}
@@ -511,8 +634,14 @@ textarea:focus {
 			margin: 40px auto;
 			display: block;
 			text-align: center;
+		}		.grandform
+		{
+			margin: 40px auto;
+			margin-top: 20px;
+			display: block;
+			text-align: center;
 		}
-				.grandform1
+		.grandform1
 		{
 			margin: 30px auto;
 			display: block;
@@ -660,10 +789,403 @@ height: 100%;
 			padding: 10px 20px;
 			font-size: 20px;
 		}*/
-		
+		.date_comm
+		{
+			text-align: right;
+			font-size: 10px;
+			line-height: 1.2;
+		}
+		.author
+		{
+			margin-top:0px;
+			/*z-index : 1000;*/
+			/*position: relative;*/
+						text-align: center;
+			vertical-align:middle;
+display:inline-block;
+			/*border: 1px solid black;*/
+			margin: 0 auto;
+			width: 250px;
+			float: right;
+			text-align: left;
+			font-family: 'proxima-nova','Helvetica Neue',Helvetica,Arial,sans-serif;
+			margin: 20px 0;
+			font-size: 13px;
+			line-height: 1.2;
+			color: #3E4552;
+			font-weight: 300;
+		}
+		.les_comm
+		{
+			height: 200px;
+			margin-right: 144px;
+			margin-top: 20px;
+			/*height: 150px;*/
+			display: block;
+			overflow: auto;
+			float: right;
+			width: 250px;
+			line-height: 1.75;
+			
+			/*display: block;*/
+			/*text-align: center;
+			vertical-align:middle;
+display:inline-block;
+			border: 1px solid black;
+			margin: 0 auto;
+			width: 50%;
+			float: right;
+			font-family: 'proxima-nova','Helvetica Neue',Helvetica,Arial,sans-serif;
+			margin: 20px 0;
+			font-size: 13px;
+			line-height: 1.2;
+			color: #3E4552;
+			font-weight: 300;*/
+		}
 		#container
 		{
 			overflow: hidden;
 			width: 880px;
 			margin: 20px auto;
 		}
+
+
+
+#menu, #menu ul /* Liste */     
+{
+        padding : 10px; /* pas de marge intérieure */
+        margin : 0; /* ni extérieure */
+        list-style : none; /* on supprime le style par défaut de la liste */
+        line-height : 21px; /* on définit une hauteur pour chaque élément */
+        text-align : center; /* on centre le texte qui se trouve dans la liste */
+}
+
+#menu /* Ensemble du menu */
+{
+        /*font-weight : bold;  on met le texte en gras */
+        /*font-family : Arial;  on utilise Arial, c'est plus beau ^^ */
+        /*font-size : 12px;  hauteur du texte : 12 pixels */
+}
+
+#menu a /* Contenu des listes */
+{
+			top: 14px;
+			right: 0;
+			margin-right: 35px;
+			    /*color: rgba(255,255,255,0.95);*/
+				color: black;
+    font-weight: 600;
+    /*text-shadow: none;
+    text-decoration: none;
+    padding: 8px 10px;
+    font-size: 13px;
+    margin: 0px 0px 0px 5px;
+    border-radius: 2px;
+		    background: transparent;
+    border: 2px solid #fff;
+		line-height: 20px;
+    text-align: center;
+		vertical-align: middle;
+    cursor: pointer;*/
+
+
+
+
+        display : block; /* on change le type d'élément, les liens deviennent des balises de type block */
+        padding : 0; /* aucune marge intérieure */
+        /*background : #000;  couleur de fond         */
+        color : black; /* couleur du texte */
+				position: absolute; 
+		
+        text-decoration : none; /* on supprime le style par défaut des liens (la plupart du temps = souligné) */
+        /*width :200px;
+		height: 100px; */
+}
+#menu ul li:hover ul {
+ display: block;
+ }
+#menu li /* Elements des listes */      
+{ 
+        float : right;
+		display: block; 
+		/*height: 100px;*/
+		/*width: 100px;*/
+        /* pour IE qui ne reconnaît pas "transparent" */
+        border-right : 1px solid #fff; /* on met une bordure blanche à droite de chaque élément */
+}
+
+/* IE ne reconnaissant pas le sélecteur ">" */
+html>body #menu li
+{
+        border-right: 1px solid transparent ; /* on met une bordure transparente à droite de chaque élément */
+}
+
+#menu li ul /* Sous-listes */
+{ 
+        position: absolute;
+        /*width: 100px;*/
+        right: -999em; /* Hop, on envoie loin du champ de vision */
+}
+
+
+#menu li ul li /* Éléments de sous-listes */
+{
+        /* pour IE qui ne reconnaît pas "transparent" (comme précédemment) */
+        border-top : 1px solid black; /* on met une bordure blanche en haut de chaque élément d'une sous liste */
+}
+
+/* IE ne reconnaissant pas le sélecteur ">" */
+html>body #menu li ul li                
+{
+        border-top : 1px solid transparent; /* on met une bordure transparente en haut de chaque élément */
+}
+
+#menu li ul ul 
+{
+        /*margin    : -22px 0 0 144px ;  On décale les sous-sous-listes pour qu'elles ne soient pas au dessus des sous-listes  */
+        /* pour IE qui ne reconnaît pas "transparent" (comme précédemment) */
+        border-left     : 1px solid black ; /* Petite bordure à gauche pour ne pas coller ... */      
+}
+
+/* IE ne reconnaissant pas le sélecteur ">" ... je me répète ;-) */
+html>body #menu li ul ul                
+{
+        border-left     : 1px solid black ; /* on met une bordure transparente sur la gauche de chaque élément */
+}
+#menu li:hover ul ul, #menu li.sfhover ul ul /* Sous-sous-listes lorsque la souris passe sur un élément de liste */
+{
+        right: -999em; /* On expédie les sous-sous-listes hors du champ de vision */
+}
+
+#menu li:hover ul, #menu li li:hover ul, #menu li.sfhover ul, #menu li li.sfhover ul  /* Sous-listes lorsque la souris passe sur un élément de liste ET sous-sous-lites lorsque la souris passe sur un élément de sous-liste */
+{
+        right: auto; /* Repositionnement normal */
+        min-height: 0; /* Corrige un bug sous IE */
+}
+.login_head
+{
+	
+	color: rgba(255,255,255,0.95);
+			font-family: 'proxima-nova','Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+.header_name
+{
+	display: inline;
+	text-align: center;
+	margin-bottom: 10px;
+	margin-left: 8px;
+    margin-right: 6px;
+	font-family: 'proxima-nova','Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-weight: 800;
+    color: #FFFFFF;
+}
+#logo_head
+{
+	margin-top: 10px;
+}
+
+
+
+
+
+
+
+
+#menu-demo2, #menu-demo2 ul{
+	padding:0;
+	margin:0;
+	list-style:none;
+	text-align:center;
+	position: absolute;
+	top: 7px;
+    right: 30px;
+}
+#menu-demo2 li{
+display:inline-block;
+position:relative;
+border-radius:8px 8px 0 0;
+}
+#menu-demo2 ul li{
+display:inherit;
+border-radius:0;
+}
+#menu-demo2 ul li:hover{
+border-radius:0;
+}
+#menu-demo2 ul li:last-child{
+border-radius:0 0 8px 8px;
+}
+#menu-demo2 ul{
+position:absolute;
+z-index: 1000;
+max-height:0;
+left: 0;
+right: 0;
+top: 55px;
+overflow:hidden;
+-moz-transition: .5s all .2s;
+-webkit-transition: .5s all .2s;
+transition: .5s all .2s;
+}
+#menu-demo2 li:hover ul{
+max-height:15em;
+}
+/* background des liens menus */
+#menu-demo2 li:first-child{
+/*background-color: #65537A;
+background-image:-webkit-linear-gradient(top, #65537A 0%, #2A2333 100%);
+background-image:linear-gradient(to bottom, #65537A 0%, #2A2333 100%);*/
+}
+#menu-demo2 li:nth-child(2){
+/*background-color: #729EBF;
+background-image: -webkit-linear-gradient(top, #729EBF 0%, #333A40 100%);
+background-image:linear-gradient(to bottom, #729EBF 0%, #333A40 100%);*/
+}
+#menu-demo2 li:nth-child(3){
+background-color: #F6AD1A;
+background-image:-webkit-linear-gradient(top, #F6AD1A 0%, #9F391A 100%);
+background-image:linear-gradient(to bottom, #F6AD1A 0%, #9F391A 100%);
+}
+#menu-demo2 li:last-child{
+	background-color: transparent;
+/*background-color: #CFFF6A;*/
+/*background-image:-webkit-linear-gradient(top, #CFFF6A 0%, #677F35 100%);
+background-image:linear-gradient(to bottom, #CFFF6A 0%, #677F35 100%);*/
+}
+/* background des liens sous menus */
+#menu-demo2 li:first-child li{
+background:#2A2333;
+}
+#menu-demo2 li:nth-child(2) li{
+background:#333A40;
+}
+#menu-demo2 li:nth-child(3) li{
+background:#9F391A;
+}
+#menu-demo2 li:last-child li{
+background:#0667D0;
+}
+/* background des liens menus et sous menus au survol */
+#menu-demo2 li:first-child:hover, #menu-demo2 li:first-child li:hover{
+/*background:#729EBF;*/
+}
+#menu-demo2 li:nth-child(2):hover, #menu-demo2 li:nth-child(2) li:hover{
+background:#729EBF;
+}
+#menu-demo2 li:nth-child(3):hover, #menu-demo2 li:nth-child(3) li:hover{
+background:#729EBF;
+}
+#menu-demo2 li:last-child:hover, #menu-demo2 li:last-child li:hover{
+background:#729EBF;
+}
+/* les a href */
+#menu-demo2 a{
+text-decoration:none;
+display:block;
+padding:8px 32px;
+color:#fff;
+font-family:arial;
+}
+#menu-demo2 ul a{
+padding:8px 0;
+}
+#menu-demo2 li:hover li a{
+color:#fff;
+text-transform:inherit;
+}
+#menu-demo2 li:hover a, #menu-demo2 li li:hover a{
+color: #fff;
+}
+.likes
+{
+	    /*overflow:hidden;*/
+	
+	width: 50px;
+	/*cursor: pointer;	*/
+	display: inline-block;
+	margin-left: 260px;;
+	text-align: right;
+	margin-top: -14px;
+	/*margin-bottom: 28px;*/
+}
+
+
+/* button submit */
+#monForm button[type="submit"]
+{
+	/*border: #DDEEFF 1px solid;*/
+	width: 100px;
+	height: 19px;
+	background: url("pictures/site/cross-square-black-button.png")
+}
+
+#monForm button[type="submit"]:hover
+{
+	background-color: #66CC33;
+	cursor: pointer;
+}
+
+/*#monForm input[type="reset"]
+{
+	border: #DDEEFF 1px solid;
+	width: 27%;
+}
+
+#monForm input[type="reset"]:hover
+{
+	background-color: #E6484D;
+	cursor: pointer;
+}*/
+.count_like
+{
+	/*margin-right: 10px;*/
+	padding-right: 3px;
+	font-size: 15px;
+    /*line-height: 1.2;*/
+    color: #3E4552;
+    font-weight: 300;
+	font-family: 'proxima-nova','Helvetica Neue',Helvetica,Arial,sans-serif;
+	float:left;
+}
+.logo_like
+{
+	float: right;
+}
+
+#monForm2 button[type="submit"]
+{
+	border: none; 
+	width: 24px;
+	height: 24px;
+	background: url("pictures/site/e-commerce-like-heart.png")
+}
+
+#monForm2 button[type="submit"]:hover
+{
+	background: url("pictures/site/like-black-heart-button.png");
+	width: 24px;
+	height: 24px;
+	border: none; 
+	cursor: pointer;
+	transition: .4s all .1s;
+}
+
+
+#monForm3 button[type="submit"]
+{
+	border: none; 
+	width: 24px;
+	height: 24px;
+	background: url("pictures/site/like-black-heart-button.png");
+
+}
+
+#monForm3 button[type="submit"]:hover
+{
+	background: url("pictures/site/e-commerce-like-heart.png");
+	width: 24px;
+	height: 24px;
+	border: none; 
+	cursor: pointer;
+	transition: .4s all .1s;
+}

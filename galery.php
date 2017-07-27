@@ -1,24 +1,19 @@
 <?php
 session_start();
 require("auth.php");
-
-function create_page($count)
-{
-    if (fopen("/galery.php/".$count."", "w") == FALSE)
-        echo "Probleme lors de la creation de la page";
-}
-
-if (auth::isLogged() == FALSE)
-{
-  header('Location: index.php');
-  exit();
-}
+// if (auth::isLogged() == FALSE)
+// {
+//   header('Location: index.php');
+//   exit();
+// }
 ?>
 <!DOCTYPE html>
 <html>
 	<head>
+			<meta charset="utf-8"/>
             <style type="text/css">@import url("./style.css");</style>
             <script type="text/javascript" src="alert.js"></script>
+            <!--<script type="text/javascript" src="scroll.js"></script>-->
 	</head>
     <header>
 	<?php
@@ -35,50 +30,171 @@ catch (PDOException $e)
 {
     echo 'Connection failed: ' . $e->getMessage();
 }
-$max = $db->query('SELECT * FROM picture');
-$picture = $db->query('SELECT * FROM picture LIMIT 10 OFFSET 0');
+?>
+<body>
+<?php
+$PicturePerPage = 4;
+$nbrPicture_total = $db->query('SELECT COUNT(*) FROM picture');
+while (($test = $nbrPicture_total->fetch()))
+{
+            $retour_total = $test;
+}
+$picture = $db->query('SELECT * FROM picture');
 while (($test = $picture->fetch()))
 {
-            $titi[] = $test;
+            $donnees_total[] = $test;
 }
-while (($limit = $max->fetch()))
+$nombreDePages = ceil($retour_total[0]/$PicturePerPage);
+if (isset($_GET['page']))
 {
-            $toto[] = $limit;
-}
-if ($titi)
-{
-$i = 0;
-$count = 1;
-echo '<div class="pupload_gal">';
-?>
-<h2>La galerie</h2>
-<?php
-$test = fopen("pictures/users/".$titi[$i]['picture'], "r");
-while($titi[$i])
-{
-	$tof = file_get_contents("pictures/users/".$titi[$i]['picture']);
-	?>
-	<img width="150px" id="pupload_gal" src="<?php echo  $tof; ?>" />
-<?php
-$i++;
-}
-	echo "</div>";
-    if (sizeof($titi) < sizeof($toto))
-    {
-        echo "HERE";
-        $count++;
-        create_page($count);
-        echo "<a href='galery.php/'".$count."'";
-    }
+     $pageActuelle = intval($_GET['page']);
+     if ($pageActuelle > $nombreDePages)
+          $pageActuelle = $nombreDePages;
 }
 else
-    echo "La galerie est vide pour le moment !";
-?>   
-</div>
-      </div>
-
-</body>
-<?php 
-include("footer.html");
+	$pageActuelle = 1;
+$premiereEntree = ($pageActuelle - 1) * $PicturePerPage;
+$retour_messages = $db->query('SELECT * FROM picture ORDER BY id DESC LIMIT '.$premiereEntree.', '. $PicturePerPage .'');
+echo 	'<div class="title_gal3" ><center><h2>La Galerie</h2></center></div>
+		<div class="pupload1" align="center">';
+echo "<div class='testdiv'>";
+while ($donnees_messages = $retour_messages->fetch())
+{
+	// print_r($donnees_messages);
+	$ret = $donnees_messages["id"];
+	$retour_comm = $db->query('SELECT comments, id_picture, username, date_comm FROM comments  WHERE  id_picture = "' . $ret . '" ORDER BY date_comm DESC');
+	while ($tqi = $retour_comm->fetch())
+		$commentqi[] = $tqi;
+	$tof = file_get_contents("pictures/users/".$donnees_messages['picture']);
+	echo '<center><div id="scroll-content" class="grandform2">
+			<div align="center" class="all_form2">
+			<div align="center" class="account-form2">
+			<table width="400" border="0" align="center" cellpadding="0" cellspacing="0">';
+	$i = 0;
 ?>
+		<div class="les_comm" style="clear:both;">
+<?php
+	if ($commentqi)
+	{
+		while ($commentqi[$i])
+		{	
+?>
+			<div class="author" style="clear:both;">
+			<?php 
+				echo "<strong>".$commentqi[$i]['username']." </strong>";
+				?>
+				<div class="msg"> 
+					<?php
+						echo htmlspecialchars($commentqi[$i]['comments']); 
+?>
+					<div class="date_comm" style="clear:both;">
+					<?php 
+					$date = date_create($commentqi[$i]['date_comm']);
+					echo date_format($date, 'd F, H:i'); ?>
+				</div>
+			</div>
+		</div>
+<?php
+			$i++;
+		}
+	}
+	else
+		echo "<div class='author'>Pas encore de commentaire</div>";
+?>
+</div>
+<?php
+$url = $_SERVER['REQUEST_URI'];
+?>
+	<td><div class="ret_pic"><img width="320px" height="240px" id="pupload1" src="<?php echo  $tof ?>" />
+
+	<strong> Posté par: <?php echo nl2br(stripslashes($donnees_messages['username'])) ?> </strong>
+	<!--<form method="POST" action="likes.php">-->
+	<div class="likes">
+		<?php
+			$id_pic = $donnees_messages['id'];
+			if (auth::is_like($donnees_messages) == FALSE)
+			{
+				$nbr_like = auth::count_like($donnees_messages);
+				?>
+				<div class="count_like"><?php echo "(".$nbr_like.")" ?> </div>			
+				<!--<div class="logo_like">	<img width="20px" src="pictures/site/heart-outline.png" /></div></div>-->
+				<form id="monForm2" method="POST" action="like.php">
+					<input type="hidden" value="<?php echo $id_pic ?>" name="id_pic"/>
+					<input type="hidden" value="<?php echo $url ?>" name="url_actual"/>
+					<button type="submit" name="submit" Value="OK"/></button>
+				</form></div>
+					<?php
+			}
+			else
+			{
+				$nbr_like = auth::count_like($donnees_messages);
+				?>
+				<div class="count_like"><?php echo "(".$nbr_like.")" ?> </div>
+				<form id="monForm3" method="POST" action="unlike.php">
+					<input type="hidden" value="<?php echo $id_pic ?>" name="id_pic"/>
+					<input type="hidden" value="<?php echo $url ?>" name="url_actual"/>
+					<button type="submit" name="submit" Value="OK"/></button>
+				</form></div>
+				<?php
+			}
+	if ($donnees_messages['username'] == $_SESSION['auth']['login'])
+	{
+		?>
+		<form id="monForm" method="POST" action="del.php">
+			<input type="hidden" value="<?php echo $url ?>" name="url_actual"/>
+			<input type="hidden" value="<?php echo $donnees_messages[0] ?>" name="id_photo"/>
+			<button type="submit" name="submit" Value="OK"/>Supprimer</button>
+		</form>
+		<?php
+	}
+	?>
+	</td>
+	</form>
+
+	</tr>
+
+	</table>
+			<div class="form_com">
+                <form method="POST" action="comments.php">
+				<input type="hidden" value="<?php echo $donnees_messages[0] ?>" name="id_photo"/>
+				<input type="hidden" value="<?php echo $donnees_messages['username'] ?>" name="user_photo"/>												
+				<input type="hidden" value="<?php echo $url ?>" name="url_actual"/>
+				<input type="hidden" value="<?php echo  $_SESSION['auth']['login'] ?>" name="username"/>
+						<textarea name="comments" id="comments"  rows="2" cols="200" style="width:500px;">Votre commentaire...</textarea>
+                        <br/>
+                        <br/>
+                            <input type="submit" id="submit"  name="submit" value="OK">
+                </form>
+				</div>
+            </div>
+	<br/><br/>
+		</center>
+		<?php
+$commentqi = array();
+}
+echo "</div>";
+echo '<p align="center">Page : ';
+$i = 1;
+while ($i <= $nombreDePages)
+{
+	if ($i == $pageActuelle)
+	{
+		echo ' [ '.$i.' ] '; 
+	}
+	else
+	{
+		echo ' <a href="galery.php?page='.$i.'">'.$i.'</a> ';
+	}
+	$i++;
+}
+// print_r($_SERVER['REQUEST_URI']);
+echo "</div>";
+echo '</p>';
+?>
+</body>
+<footer>
+<?php
+	include("footer.html");
+?>
+</footer>
 </html>

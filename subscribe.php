@@ -1,24 +1,24 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		    <meta charset="utf-8"/>
-            <style type="text/css">@import url("./style.css");</style>
-            <script type="text/javascript" src="alert.js"></script>
+			<meta charset="utf-8"/>
+			<style type="text/css">@import url("./style.css");</style>
+			<script type="text/javascript" src="alert.js"></script>
 	</head>
-    <header>
-	<?php
-		include('header.html');
-	?>
-    </header>
-    <body>
-            <div class="grandform">
-				        <div align="center" class="all_form">
-							            <div class="account-form">
-									<h2> S'inscrire </h2>
+	<header>
+		<?php
+			include('header2.php');
+		?>
+	</header>
+	<body>
+			<div class="grandform">
+				<div align="center" class="all_form">
+						<div class="account-form">
+								<h2> S'inscrire </h2>
 	        	<form method="POST" action="#" onsubmit="return verifForm(this)"> 
 					<input type="mail" id="email" name="email" onblur="verifMail(this)" placeholder="E-mail" />
 					<br/>
-                	<br/> 
+					<br/> 
 					<input type="text" id="username" name="username" onblur="verifPseudo(this)" placeholder="Login" />
 					<br>
 					<br/>
@@ -28,21 +28,17 @@
 					<input onblur="verifPasswd(this)" type="password" name="password_confirm" id="password_confirm" placeholder="Confirm password"/>
 					<br>
 					<br/>
-					<!--<div class="submit">-->
 					<input type="submit" id="submit" name="submit" value="OK">
-    	    	</form>
-        </div>
-        </div>				
-        	<!--</div>-->
-        <!--<div class="lost_account">
-            <a id="create_account" href="http://localhost:8888/camagru/index.php">Retour</a>
-        </div>-->
-    </body>
-	<?php include("footer.html"); ?>
+				</form>
+		</div>
+		</div>
+	</body>
+	<?php 
+		include("footer.html");
+	?>
 </html>
 
 <?php
-// session_start();
 require("auth.php");
 if ($_POST['submit'] == "OK" && $_POST['password'] != "" && $_POST['email'] != "" && $_POST['username'] != "" && $_POST['password_confirm'] != "")
 {
@@ -63,7 +59,7 @@ if ($_POST['submit'] == "OK" && $_POST['password'] != "" && $_POST['email'] != "
 		}
 		catch (PDOException $e) 
     	{
-        	echo 'Connection failed: ' . $e->getMessage();
+			echo 'Connection failed: ' . $e->getMessage();
     	}
 		if(empty($_POST['username']) || !preg_match('/^[a-zA-Z0-9_]+$/', $_POST['username']))
 			$errors['username'] = "votre pseudo n'est pas valide (Alphanumérique)";
