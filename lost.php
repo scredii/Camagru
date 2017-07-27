@@ -7,7 +7,7 @@
     </head>    
     <header>
 <?php
-include('header2.php');
+include('header1.php');
 ?>
     </header>
     <body>
@@ -29,6 +29,8 @@ include('header2.php');
 </html>
 
 <?php
+require("auth.php");
+
 if ($_POST['submit'] == "OK" && $_POST['email'] != "")
 {
     if(empty($_POST['email']) || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))
@@ -37,19 +39,10 @@ if ($_POST['submit'] == "OK" && $_POST['email'] != "")
         echo "<br><br><a href='index.php'>Retourner au menu principal</a>";        
         die();
     }
-    try
-    {
-		$db = new PDO('mysql:host=localhost;dbname=cama_base','root','root');
-		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	}
-	catch (PDOException $e) 
-    {
-        echo 'Connection failed: ' . $e->getMessage();
-    }
+    $db = auth::connect_sql();
     $email2 = $_POST['email'];
     $reponse_mail = $db->query('SELECT email FROM users WHERE email = "' . $email2 . '" ');
     $token_tmp = $db->query('SELECT token FROM users WHERE email = "' . $email2 . '" ');
-    // echo $token_tmp;
     if (($test = $token_tmp->fetch()))
 	{
         $titi = $test;
@@ -78,8 +71,4 @@ if ($_POST['submit'] == "OK" && $_POST['email'] != "")
         die();
     }
 }
-// else
-// {
-//     header("Location: lost.html");
-// }
 ?>

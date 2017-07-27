@@ -1,14 +1,7 @@
 <?php
-    // header('Refresh: 3;URL=http://localhost:8888/camagru/index.php');
-    try
-    {
-        $db = new PDO('mysql:host=localhost;dbname=cama_base','root','root');
-        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    }
-    catch (PDOException $e) 
-    {
-        echo 'Connection failed: ' . $e->getMessage();
-    }
+require("auth.php");
+
+    $db = connect_sql();
     $log_tmp = $_GET['login'];
     $key_tmp = $_GET['key'];
     $req = $db->prepare("SELECT token,actif FROM users WHERE username like :login ");

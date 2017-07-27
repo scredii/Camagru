@@ -1,7 +1,8 @@
 <?php
 session_start();
 require("auth.php");
-// header("Location: webcam.php");
+
+// the real function is not working
 function imagecopymerge_alpha($dst_im, $src_im, $dst_x, $dst_y, $src_x, $src_y, $src_w, $src_h, $pct)
 { 
         $cut = imagecreatetruecolor($src_w, $src_h); 
@@ -26,50 +27,7 @@ function add_filter($dest, $choice)
         return ($dest);
 }
 
-function resize_picture($src)
-{
-        // $new = imagecreatetruecolor(320, 240);
-        // list($witdh, $height) = getimagesize($src['upload_photo']['tmp_name']);
-        // imagealphablending($new, false);
-        // imagesavealpha ($new, true);
-        // $src1 = imagecreatefromjpeg($src['tmp_name']);
-        // imagecopyresized($new, $src1, 0, 0, 0, 0, 320, 240, $width, $height);
-
-       // imagecopyresampled($new, $src1, 0, 0,20, 20, 320, 240, $width, $height);
-        // header("Content-type: image/png");
-        // imagepng($new);
-        // echo $new;
-    $maxDimW = 320;
-    $maxDimH = 240;
-    list($width, $height, $type, $attr) = getimagesize($src['upload_photo']['tmp_name']);
-    if ( $width > $maxDimW || $height > $maxDimH ) 
-    {
-        $target_filename = $src['upload_photo']['tmp_name'];
-        $fn = $src['upload_photo']['tmp_name'];
-        $size = getimagesize($fn);
-        $ratio = $size[0]/$size[1];
-        if( $ratio > 1) {
-            $width = $maxDimW;
-            $height = $maxDimH/$ratio;
-        } else {
-            $width = $maxDimW*$ratio;
-            $height = $maxDimH;
-        }
-        $src = imagecreatefromstring(file_get_contents($fn));
-        $dst = imagecreatetruecolor( $width, $height );
-        imagecopyresampled($dst, $src, 0, 0, 0, 0, $width, $height, $size[0], $size[1]);
-
-    ob_start();
-    imagepng($dst, $target_filename);
-    $image_data = ob_get_contents();
-    ob_end_clean();
-        print_r($image_data);
-        // imagepng($dst, $target_filename);
-
-        return ($image_data);
-}
-}
-
+// check PNG and real PNG
 function check_format($src)
 {
         $extension_upload = strtolower(substr(strrchr($src['upload_photo']['name'], '.'),1));
@@ -80,6 +38,8 @@ function check_format($src)
         if ($witdh == 0|| $height == 0)
             exit("Format non supporte ou erreur lors de l'upload de la photo");
 }
+
+// check file or webcam
 function is_post_file($file)
 {
     if (!empty($file['upload_photo']['tmp_name'] || !empty($file['upload_photo']['name'])))
@@ -208,36 +168,4 @@ if ($_POST['filter'] == "spliff")
     imagedestroy($dest);
     imagedestroy($src1);
 }
-
-
-//faire la lecture
-    // $src = $_POST['image'];
-    // print_r($src);
-    // $src = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $src));
-    // file_put_contents("pictures/users/tmp.png", $src);
-    // $src1 = imagecreatefrompng("pictures/site/filtres/blunt.png");
-    // $dest =  imagecreatefrompng("pictures/users/tmp.png");
-    // imagealphablending($src1, false);
-    // imagesavealpha ($src1, true);
-    // $md5 = md5(time());
-    // imagecopymerge_alpha($dest, $src1, imagesx($dest) / 2 + 15, imagesy($dest) / 2, 0, 0, imagesx($src1), imagesy($src1), 100);
-    // header("Content-type: image/png");
-    // imagepng($dest);
-    // imagedestroy($dest);
-    // imagedestroy($src1);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ?>

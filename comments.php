@@ -5,22 +5,11 @@ if (auth::isLogged() == FALSE)
 {
  	header('Location: galery.php');
 	 exit();
-    // echo "Veuillez vous connecter\n";
 }
 if ($_POST['comments'] != "" && $_POST['submit'] == "OK" && $_SESSION['auth'])
 {
     //PROTEGER LES COMM RECUS CONTRE INJECTIONS
-    //PROTEGER LES COMM RECUS CONTRE INJECTIONS
-    //PROTEGER LES COMM RECUS CONTRE INJECTIONS
-    try
-    {
-        $db = new PDO('mysql:host=localhost;dbname=cama_base','root','root');
-        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    }
-    catch (PDOException $e) 
-    {
-        echo 'Connection failed: ' . $e->getMessage();
-    }
+    $db = auth::connect_sql();
     $id_picture = $_POST['id_photo'];
 	$id_prop = $_POST['user_photo'];
     $username = $_POST['username'];

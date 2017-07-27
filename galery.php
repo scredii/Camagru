@@ -1,11 +1,6 @@
 <?php
 session_start();
 require("auth.php");
-// if (auth::isLogged() == FALSE)
-// {
-//   header('Location: index.php');
-//   exit();
-// }
 ?>
 <!DOCTYPE html>
 <html>
@@ -21,15 +16,7 @@ require("auth.php");
 	?>
     </header>
 <?php
-try
-{
-	$db = new PDO('mysql:host=localhost;dbname=cama_base','root','root');
-	$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-}
-catch (PDOException $e)
-{
-    echo 'Connection failed: ' . $e->getMessage();
-}
+$db = auth::connect_sql();
 ?>
 <body>
 <?php
@@ -60,7 +47,6 @@ echo 	'<div class="title_gal3" ><center><h2>La Galerie</h2></center></div>
 echo "<div class='testdiv'>";
 while ($donnees_messages = $retour_messages->fetch())
 {
-	// print_r($donnees_messages);
 	$ret = $donnees_messages["id"];
 	$retour_comm = $db->query('SELECT comments, id_picture, username, date_comm FROM comments  WHERE  id_picture = "' . $ret . '" ORDER BY date_comm DESC');
 	while ($tqi = $retour_comm->fetch())
@@ -108,7 +94,6 @@ $url = $_SERVER['REQUEST_URI'];
 	<td><div class="ret_pic"><img width="320px" height="240px" id="pupload1" src="<?php echo  $tof ?>" />
 
 	<strong> Posté par: <?php echo nl2br(stripslashes($donnees_messages['username'])) ?> </strong>
-	<!--<form method="POST" action="likes.php">-->
 	<div class="likes">
 		<?php
 			$id_pic = $donnees_messages['id'];
@@ -117,7 +102,6 @@ $url = $_SERVER['REQUEST_URI'];
 				$nbr_like = auth::count_like($donnees_messages);
 				?>
 				<div class="count_like"><?php echo "(".$nbr_like.")" ?> </div>			
-				<!--<div class="logo_like">	<img width="20px" src="pictures/site/heart-outline.png" /></div></div>-->
 				<form id="monForm2" method="POST" action="like.php">
 					<input type="hidden" value="<?php echo $id_pic ?>" name="id_pic"/>
 					<input type="hidden" value="<?php echo $url ?>" name="url_actual"/>
@@ -187,7 +171,6 @@ while ($i <= $nombreDePages)
 	}
 	$i++;
 }
-// print_r($_SERVER['REQUEST_URI']);
 echo "</div>";
 echo '</p>';
 ?>

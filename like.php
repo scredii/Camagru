@@ -1,8 +1,7 @@
 <?php
 session_start();
-// print_r($_POST);
-// print_r($_SESSION['auth']['login']);
 require("auth.php");
+
 if (auth::isLogged() == FALSE)
 {
 	 header('Location: index.php');

@@ -1,6 +1,7 @@
 <?php
 //certif ssl
 session_start();
+require("auth.php");
 if ($_POST['submit'] == 'OK' && $_POST['login'] != "" && $_POST['passwd'] !=  "")
 {
     $errors = [];
@@ -11,15 +12,7 @@ if ($_POST['submit'] == 'OK' && $_POST['login'] != "" && $_POST['passwd'] !=  ""
         $errors['username'] = "votre pseudo n'est pas valide (Alphanumérique)";
         exit();
     }
-    try
-    {
-        $db = new PDO('mysql:host=localhost;dbname=cama_base','root','root');
-        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    }
-    catch (PDOException $e) 
-    {
-        echo 'Connection failed: ' . $e->getMessage();
-    }
+    $db = auth::connect_sql();
     if(empty($errors))
     {
         $reponse_user = $db->query('SELECT username FROM users WHERE username = "' . $login . '" ');

@@ -7,31 +7,31 @@
 	</head>
 	<header>
 		<?php
-			include('header2.php');
+			include('header1.php');
 		?>
 	</header>
 	<body>
 			<div class="grandform">
 				<div align="center" class="all_form">
 						<div class="account-form">
-								<h2> S'inscrire </h2>
-	        	<form method="POST" action="#" onsubmit="return verifForm(this)"> 
-					<input type="mail" id="email" name="email" onblur="verifMail(this)" placeholder="E-mail" />
-					<br/>
-					<br/> 
-					<input type="text" id="username" name="username" onblur="verifPseudo(this)" placeholder="Login" />
-					<br>
-					<br/>
-					<input onblur="verifPasswd(this)" type="password" id="password" name="password" placeholder="Password"/>
-					<br>
-					<br/>
-					<input onblur="verifPasswd(this)" type="password" name="password_confirm" id="password_confirm" placeholder="Confirm password"/>
-					<br>
-					<br/>
-					<input type="submit" id="submit" name="submit" value="OK">
-				</form>
-		</div>
-		</div>
+							<h2> S'inscrire </h2>
+								<form method="POST" action="#" onsubmit="return verifForm(this)"> 
+									<input type="mail" id="email" name="email" onblur="verifMail(this)" placeholder="E-mail" />
+									<br/>
+									<br/> 
+									<input type="text" id="username" name="username" onblur="verifPseudo(this)" placeholder="Login" />
+									<br>
+									<br/>
+									<input onblur="verifPasswd(this)" type="password" id="password" name="password" placeholder="Password"/>
+									<br>
+									<br/>
+									<input onblur="verifPasswd(this)" type="password" name="password_confirm" id="password_confirm" placeholder="Confirm password"/>
+									<br>
+									<br/>
+									<input type="submit" id="submit" name="submit" value="OK">
+							</form>
+					</div>
+			</div>
 	</body>
 	<?php 
 		include("footer.html");
@@ -40,6 +40,7 @@
 
 <?php
 require("auth.php");
+
 if ($_POST['submit'] == "OK" && $_POST['password'] != "" && $_POST['email'] != "" && $_POST['username'] != "" && $_POST['password_confirm'] != "")
 {
 		$errors = [];
@@ -52,15 +53,7 @@ if ($_POST['submit'] == "OK" && $_POST['password'] != "" && $_POST['email'] != "
 		$pwd = hash('whirlpool', $_POST['password']);
 		$email = $_POST['email'];
 		$username = $_POST['username'];
-		try
-		{
-			$db = new PDO('mysql:host=localhost;dbname=cama_base','root','root');
-			$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		}
-		catch (PDOException $e) 
-    	{
-			echo 'Connection failed: ' . $e->getMessage();
-    	}
+		$db = auth::connect_sql();
 		if(empty($_POST['username']) || !preg_match('/^[a-zA-Z0-9_]+$/', $_POST['username']))
 			$errors['username'] = "votre pseudo n'est pas valide (Alphanumérique)";
 		if(empty($_POST['email']) || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))
@@ -78,7 +71,6 @@ if ($_POST['submit'] == "OK" && $_POST['password'] != "" && $_POST['email'] != "
 			else if (($mail = $reponse_mail->fetch()))
 			{
 				echo "Vous etes deja enregistré";
-				// LIEN mailPOUR RECUPERER SON MOT DE PASSE
 			}
 			else
 			{
@@ -111,6 +103,4 @@ if ($_POST['submit'] == "OK" && $_POST['password'] != "" && $_POST['email'] != "
 			echo "</pre>";
 		}
 }
-// else
-// 	header("Location: subscribe.html")
 ?>

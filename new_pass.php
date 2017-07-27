@@ -1,14 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <meta charset="utf-8"/>
+            <style type="text/css">@import url("./style.css");</style>
+            <script type="text/javascript" src="alert.js"></script>
+    </head>    
+    <header>
 <?php
-    // header('Refresh: 3;URL=http://localhost:8888/camagru/index.php');
-    try
-    {
-        $db = new PDO('mysql:host=localhost;dbname=cama_base','root','root');
-        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    }
-    catch (PDOException $e) 
-    {
-        echo 'Connection failed: ' . $e->getMessage();
-    }
+include('header1.php');
+?>
+    </header>
+<?php
+    require("auth.php");
+
+    $db = auth::connect_sql();
     $key_tmp = $_GET['key'];
     $mail_tmp = $_GET['email'];
     $req = $db->prepare("SELECT token,email FROM users WHERE email like :email ");
@@ -19,16 +24,19 @@
     }
     if($tok == $key_tmp && $mail_tmp ==  $rmail)
     {
-        echo "
+        echo "		<div class='grandform'>
+			<div align='center' class='all_form'>
+				<div class='account-form'>
+                <h2>Nouveau mot de passe</h2>
         <form method='POST' action='new_pass.php?key='.urlencode($tok).'> 
-            pseudo: <input type='text' name='login'/>
+            <input type='text' id='username' name='login' placeholder='Login'/>
             <br>
-            Nouveau mot de passe: <input type='password' name='password'/>
+            <input id='password' type='password' name='password' placeholder='Password'/>
             <br>
-            Confirmez le mot de passe: <input type='password' name='confirm_password'/>
+            <input id='password' type='password' name='confirm_password' placeholder='Confirm password'/>
             <br>
             <input type='hidden' name='token' value='$tok' />
-    	    <input type='submit' name='submit' value='OK'>
+    	    <input type='submit' name='submit' id='submit' value='OK'>
         </form>";
         if ($_POST['submit'] == 'OK' && $_POST['password'] == $_POST['confirm_password'])
         {   
@@ -40,15 +48,6 @@
 			    exit();
 		    }
             $pwd = hash('whirlpool', $_POST['password']);
-            try
-		    {
-			    $db = new PDO('mysql:host=localhost;dbname=cama_base','root','root');
-			    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		    }
-            catch (PDOException $e) 
-    	    {
-        	    echo 'Connection failed: ' . $e->getMessage();
-    	    }
             $reponse_user = $db->query('SELECT username FROM users WHERE username = "' . $log . '" ');
             $reponse_tok = $db->query('SELECT token FROM users WHERE username = "' . $log . '" ');
             if ($tmp = $reponse_user->fetch())
@@ -80,5 +79,5 @@
         }
     }
     else
-        echo "probleme";
+        echo "Error\n";
 ?>
