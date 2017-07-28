@@ -1011,6 +1011,11 @@ color:#fff;
 font-family:arial;
 }
 #menu-demo2 ul a{
+			font-family: 'proxima-nova','Helvetica Neue',Helvetica,Arial,sans-serif;
+			/*margin: 20px 0;*/
+			font-size: 13px;
+			line-height: 1.2;
+			font-weight: 300;
 padding:8px 0;
 }
 #menu-demo2 li:hover li a{
@@ -1038,28 +1043,19 @@ color: #fff;
 #monForm button[type="submit"]
 {
 	/*border: #DDEEFF 1px solid;*/
-	width: 100px;
-	height: 19px;
-	background: url("pictures/site/cross-square-black-button.png")
+	border: none; 
+	
+	width: 24px;
+	height: 24px;
+	background: url("pictures/site/delete.png")
 }
 
 #monForm button[type="submit"]:hover
 {
-	background-color: #66CC33;
+	/*background-color: #66CC33;*/
 	cursor: pointer;
 }
 
-/*#monForm input[type="reset"]
-{
-	border: #DDEEFF 1px solid;
-	width: 27%;
-}
-
-#monForm input[type="reset"]:hover
-{
-	background-color: #E6484D;
-	cursor: pointer;
-}*/
 .count_like
 {
 	/*margin-right: 10px;*/
@@ -1112,4 +1108,37 @@ color: #fff;
 	border: none; 
 	cursor: pointer;
 	transition: .4s all .1s;
+}
+.welcome
+{
+				font-family: 'proxima-nova','Helvetica Neue',Helvetica,Arial,sans-serif;
+			/*margin: 20px 0;*/
+			font-size: 13px;
+			line-height: 1.2;
+			font-weight: 300;
+/*padding:8px 0;*/
+}
+
+#snapchat
+{
+	display: inline;
+    position: absolute;
+    margin-left: 80px;
+    margin-top: 50px;
+}
+
+#blunt
+{
+	display: inline;
+    position: absolute;
+ 	margin-left: 170px;
+    margin-top: 120px;
+}
+
+#beer
+{
+	display: inline;
+    position: absolute;
+	margin-left: 113px;
+    margin-top: 58px;
 }

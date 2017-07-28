@@ -25,6 +25,7 @@
 			?>
 </a>
 		<ul>
+			<li><a href="logout.php">Déconnexion</a></li>
 			<li><a href="subscribe.php">Subscribe</a></li>
 			<li><a href="index.php">Se connecter</a></li>
 			<li><a href="galery.php">Galerie</a></li>

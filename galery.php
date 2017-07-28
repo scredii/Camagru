@@ -93,7 +93,7 @@ $url = $_SERVER['REQUEST_URI'];
 ?>
 	<td><div class="ret_pic"><img width="320px" height="240px" id="pupload1" src="<?php echo  $tof ?>" />
 
-	<strong> Posté par: <?php echo nl2br(stripslashes($donnees_messages['username'])) ?> </strong>
+	<div class="welcome"> Posté par: <?php echo nl2br(stripslashes($donnees_messages['username'])) ?></div>
 	<div class="likes">
 		<?php
 			$id_pic = $donnees_messages['id'];
@@ -127,7 +127,7 @@ $url = $_SERVER['REQUEST_URI'];
 		<form id="monForm" method="POST" action="del.php">
 			<input type="hidden" value="<?php echo $url ?>" name="url_actual"/>
 			<input type="hidden" value="<?php echo $donnees_messages[0] ?>" name="id_photo"/>
-			<button type="submit" name="submit" Value="OK"/>Supprimer</button>
+			<button type="submit" name="submit" Value="OK"/></button>
 		</form>
 		<?php
 	}

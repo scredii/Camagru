@@ -30,6 +30,9 @@ if (auth::isLogged() == FALSE)
                           <div class="conteneur">
         <h2>Utilise ta webcam...  Ou upload ta photo !</h2>
         </div>
+	  <input type="image" id="snapchat" src="pictures/site/filtres/motage2.png" hidden="true"/>
+	  <input type="image" id="blunt" src="pictures/site/filtres/blunt.png" hidden="true"/>
+	  <input type="image" id="beer" src="pictures/site/filtres/beerfil.png" hidden="true"/>
       <video id="video"></video>
       <button  id="startbutton" disabled="disabled">Prendre une photo</button>
       <canvas id="canvas"></canvas>
@@ -44,9 +47,9 @@ if (auth::isLogged() == FALSE)
         </div>
         <div class="filter">
 		<label for="filter2">  Choisis un filtre: </label><br><br>
-            <input type="radio" name="filter" value="snap" onclick="document.getElementById('startbutton').disabled=false"> Snapchat <br>
-  			<input type="radio" name="filter" value="beer" onclick="document.getElementById('startbutton').disabled=false"> Beer <br>
-  			<input type="radio" name="filter" value="spliff" onclick="document.getElementById('startbutton').disabled=false"> Spliff <br><br>
+            <input type="radio" name="filter" value="snap" onclick="document.getElementById('startbutton').disabled=false;document.getElementById('snapchat').hidden=false"> Snapchat <br>
+  			<input type="radio" name="filter" value="beer" onclick="document.getElementById('startbutton').disabled=false;document.getElementById('beer').hidden=false"> Beer <br>
+  			<input type="radio" name="filter" value="spliff" onclick="document.getElementById('startbutton').disabled=false;document.getElementById('blunt').hidden=false"> Spliff <br><br>
             <label for="filter2">  (optionnel) effet: </label><br><br>
             <input type="radio" name="filter2" value="1" > black & white <br>
         </div>
@@ -81,8 +84,8 @@ if ($titi)
     }
     ?>
     <p>
-    <a  id="lost_account" href="galery.php">Voir toute la galerie</a>
-    </p>	
+    <div class="welcome"><a  id="lost_account" href="galery.php">Voir toute la galerie</a></div>
+    </p>
     <?php
         echo "</div>";
 }
