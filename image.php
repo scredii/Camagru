@@ -15,12 +15,15 @@ function add_filter($dest, $choice)
 {
     if (!$choice)
         return ($dest);
+    $valeur= -35;
     if ($choice == 1)
     {
-        // $valeur= -50;
-        // imagefilter($dest,IMG_FILTER_CONTRAST,$valeur);
-        imagefilter($dest,IMG_FILTER_COLORIZE,0,-100,0);
-        //   imagefilter($dest, IMG_FILTER_GAUSSIAN_BLUR);
+        imagefilter($dest,IMG_FILTER_CONTRAST,$valeur);
+        return ($dest);
+    }
+    if ($choice == 2)
+    {
+        imagefilter($dest, IMG_FILTER_GRAYSCALE);
         return ($dest);
     }
     else
@@ -33,7 +36,12 @@ function check_format($src)
         $extension_upload = strtolower(substr(strrchr($src['upload_photo']['name'], '.'),1));
         if ($extension_upload != "png")
             exit("Extension incorrecte");
-        list($witdh, $height) = getimagesize($src['upload_photo']['tmp_name']);
+        if (!$src['upload_photo']['tmp_name'])
+            exit("Format non supporte ou erreur lors de l'upload de la photo");
+        if (!list($witdh, $height) = getimagesize($src['upload_photo']['tmp_name']))
+        {
+            exit("Format non supporte ou erreur lors de l'upload de la photo");
+        }
         $test = file_get_contents($src['upload_photo']['tmp_name']);
         if ($witdh == 0|| $height == 0)
             exit("Format non supporte ou erreur lors de l'upload de la photo");
@@ -105,11 +113,12 @@ if ($_POST['filter'] == "beer")
     }
     $src = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $src));
     file_put_contents("pictures/users/tmp.png", $src);
-    $src1 = imagecreatefrompng("pictures/site/filtres/beer.png");
+    $src1 = imagecreatefrompng("pictures/site/filtres/beerfilr.png");
     $dest =  imagecreatefrompng("pictures/users/tmp.png");
     imagealphablending($src1, false);
     imagesavealpha ($src1, true);
-    imagecopymerge_alpha($dest, $src1, imagesx($dest) / 2 - 50, imagesy($dest) / 2 - 60, 0, 0, imagesx($src1), imagesy($src1), 100);
+    imagecopymerge_alpha($dest, $src1, imagesx($dest) / 2 - 35, imagesy($dest) / 2 - 15, 0, 0, imagesx($src1), imagesy($src1), 100);
+    $dest = add_filter($dest, $choice);    
     ob_start();
     imagepng($dest);
     $image_data = ob_get_contents();
@@ -150,6 +159,7 @@ if ($_POST['filter'] == "spliff")
     imagealphablending($src1, false);
     imagesavealpha ($src1, true);
     imagecopymerge_alpha($dest, $src1, imagesx($dest) / 2 + 15, imagesy($dest) / 2, 0, 0, imagesx($src1), imagesy($src1), 100);
+    $dest = add_filter($dest, $choice);    
     ob_start();
     imagepng($dest);
     $image_data = ob_get_contents();

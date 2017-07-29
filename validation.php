@@ -1,32 +1,29 @@
 <?php
-require("auth.php");
-
-    $db = connect_sql();
+    require("auth.php");
+    header("Refresh:1; url=index.php");
+    $db = auth::connect_sql();
     $log_tmp = $_GET['login'];
     $key_tmp = $_GET['key'];
     $req = $db->prepare("SELECT token,actif FROM users WHERE username like :login ");
     if($req->execute(array(':login' => $log_tmp)) && $row = $req->fetch())
     {
-        $key_db = $row['token'];	// Récupération de la clé
-        $actif = $row['actif']; // $actif contiendra alors 0 ou 1
+        $key_db = $row['token'];
+        $actif = $row['actif'];
     }
-    if($actif == '1') // Si le compte est déjà actif on prévient
+    if($actif == '1')
     {
         echo "Votre compte est déjà actif !";
     }
-    else // Si ce n'est pas le cas on passe aux comparaisons
+    else
     {
-        if($key_tmp == $key_db) // On compare nos deux clés	
+        if($key_tmp == $key_db)
         {
-          // Si elles correspondent on active le compte !	
           echo "Votre compte a bien été activé !";
- 
-          // La requête qui va passer notre champ actif de 0 à 1
           $req = $db->prepare("UPDATE users SET actif = 1 WHERE username like :username ");
           $req->bindParam(':username', $log_tmp);
           $req->execute();
        }
-     else // Si les deux clés sont différentes on provoque une erreur...
+     else
        {
           echo "Erreur ! Votre compte ne peut être activé...";
        }

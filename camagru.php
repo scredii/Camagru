@@ -1,5 +1,4 @@
 <?php
-//certif ssl
 session_start();
 require("auth.php");
 if ($_POST['submit'] == 'OK' && $_POST['login'] != "" && $_POST['passwd'] !=  "")
@@ -38,7 +37,7 @@ if ($_POST['submit'] == 'OK' && $_POST['login'] != "" && $_POST['passwd'] !=  ""
         if ($req_actif[0] == 0)
         {
             echo "Merci d'activer votre compte avant de pouvoir vous connecter";
-            echo "<br><a href='http://localhost:8888/camagru/index.php/'>Retourner au menu principal</a>";
+            echo "<br><a href='http://localhost:8080/camagru/index.php'>Retourner au menu principal</a>";
             exit();
         }
         else

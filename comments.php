@@ -8,7 +8,6 @@ if (auth::isLogged() == FALSE)
 }
 if ($_POST['comments'] != "" && $_POST['submit'] == "OK" && $_SESSION['auth'])
 {
-    //PROTEGER LES COMM RECUS CONTRE INJECTIONS
     $db = auth::connect_sql();
     $id_picture = $_POST['id_photo'];
 	$id_prop = $_POST['user_photo'];
@@ -19,14 +18,13 @@ if ($_POST['comments'] != "" && $_POST['submit'] == "OK" && $_SESSION['auth'])
 	$req = $db->prepare('INSERT INTO comments (id_picture, username, comments, date_comm) VALUES (?, ?, ?, ?)');
 	if ($req->execute($values))
     {
-		// Mettre le bon URL dans le MAIL 
 		$reponse_mail = $db->query('SELECT email FROM users WHERE username = "' . $id_prop . '" ')->fetch();
         $url = str_replace('/camagru/', '', $_POST['url_actual']);
         $subject = "Vous avez recu un nouveau commentaire !" ;
         $entete = "Camagru - Nouveau commentaire" ;
         $message = 'Du nouveau sur Camagru,
         Vous avez recu un nouveau commentaire, cliquez sur le lien suivant pour le consulter:
-        '. $_POST["url_actual"].'
+        http://localhost:8080'.$_POST["url_actual"].'
         ---------------
         Ceci est un mail automatique, Merci de ne pas y répondre.';
         

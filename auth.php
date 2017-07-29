@@ -1,5 +1,5 @@
 <?php
-include('config/database.php');
+require_once('config/database.php');
 
 class auth
 {
@@ -41,10 +41,10 @@ class auth
 
 	function connect_sql()
 	{
+		global $DB_DSN, $DB_PASSWORD, $DB_USER;
 		try
 		{
-			$db = new PDO('mysql:host=localhost;dbname=cama_base', 'root', 'root');
-			// $db = new PDO('mysql:host=localhost;dbname=cama_base', $DB_USER, $DB_PASSWORD);
+			$db = new PDO($DB_DSN , $DB_USER, $DB_PASSWORD);
 			$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			return ($db);
 		}

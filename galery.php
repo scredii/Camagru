@@ -1,6 +1,7 @@
 <?php
 session_start();
 require("auth.php");
+include('config/database.php')
 ?>
 <!DOCTYPE html>
 <html>
@@ -8,18 +9,15 @@ require("auth.php");
 			<meta charset="utf-8"/>
             <style type="text/css">@import url("./style.css");</style>
             <script type="text/javascript" src="alert.js"></script>
-            <!--<script type="text/javascript" src="scroll.js"></script>-->
 	</head>
     <header>
 	<?php
 		 include('header2.php');
 	?>
     </header>
+	<body>
 <?php
 $db = auth::connect_sql();
-?>
-<body>
-<?php
 $PicturePerPage = 4;
 $nbrPicture_total = $db->query('SELECT COUNT(*) FROM picture');
 while (($test = $nbrPicture_total->fetch()))
@@ -144,7 +142,7 @@ $url = $_SERVER['REQUEST_URI'];
 				<input type="hidden" value="<?php echo $donnees_messages['username'] ?>" name="user_photo"/>												
 				<input type="hidden" value="<?php echo $url ?>" name="url_actual"/>
 				<input type="hidden" value="<?php echo  $_SESSION['auth']['login'] ?>" name="username"/>
-						<textarea name="comments" id="comments"  rows="2" cols="200" style="width:500px;">Votre commentaire...</textarea>
+						<textarea name="comments" id="comments"  rows="2" cols="200" style="width:500px;" placeholder="Votre commentaire..."></textarea>
                         <br/>
                         <br/>
                             <input type="submit" id="submit"  name="submit" value="OK">

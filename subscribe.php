@@ -83,7 +83,7 @@ if ($_POST['submit'] == "OK" && $_POST['password'] != "" && $_POST['email'] != "
 					$message = 'Bienvenue sur Camagru,
 					Pour activer votre compte, veuillez cliquer sur le lien ci dessous
 					ou copier/coller dans votre navigateur internet.
-					http://localhost:8888/camagru/validation.php?login='.urlencode($username).'&key='.urlencode($token).'
+					http://localhost:8080/camagru/validation.php?login='.urlencode($username).'&key='.urlencode($token).'
 					
 					---------------
 					Ceci est un mail automatique, Merci de ne pas y répondre.';

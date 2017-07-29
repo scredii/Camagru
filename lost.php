@@ -54,7 +54,7 @@ if ($_POST['submit'] == "OK" && $_POST['email'] != "")
         $message = 'Bienvenue sur Camagru,
         Pour reinitialiser votre mot de passe, veuillez cliquer sur le lien ci dessous
         ou copier/coller dans votre navigateur internet.
-        http://localhost:8888/camagru/new_pass.php?key='.urlencode($titi[0]).'&email='.urlencode($email2).'
+        http://localhost:8080/camagru/new_pass.php?key='.urlencode($titi[0]).'&email='.urlencode($email2).'
         
         ---------------
         Ceci est un mail automatique, Merci de ne pas y répondre.';

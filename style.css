@@ -80,20 +80,18 @@ input
 	border-radius: 4px;
 	color: #fff;
 	cursor: pointer;
-	/*margin-bottom: 400px;*/
 }
 
 .upload_photo
 {
-	font-weight: 300;
-	color:#3E4552;
+		font-weight: 300;
+		color:#3E4552;
 	    margin-right: 240px;
 	    line-height: 1.2;
-/*margin: 20px 20px 0 0;*/
 }
 .drop2
 {
-z-index: 2;
+	z-index: 2;
     min-width: 260px;
     border-radius: 4px;
     border: 1px solid #DAE1E9;
@@ -102,8 +100,7 @@ z-index: 2;
 }
 .msg
 {
-	/*border: 1px solid blue;*/
-	    box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+	box-shadow: 0 1px 5px rgba(0,0,0,0.1);
     border: 1px solid rgba(0,0,0,0.07);
     padding: 2px 4px 3px;
     border-radius: 1px;
@@ -141,12 +138,12 @@ position: relative;
 }
 .menu1
 {
-	    height: 60px;
+	height: 60px;
     border-bottom: 1px solid #DAE1E9;
 }
 .myinfos
 {
-	    padding: 20px 50px;
+	padding: 20px 50px;
     font-weight: 500;
     color: #4E5C6E;
 }
@@ -178,24 +175,14 @@ position: relative;
 }
 #pupload1
 {
-
-    /*margin-left: -130px;*/
-	/*padding: 0;*/
 	display: block;
-	/*position: inline;*/
-	/*top: -260px;*/
-	/*left: 0;
-	text-align: left;*/
-	/*margin-top: -200px;*/
-	/*float: left;*/
 	border-radius: 10px;
 	border: 1px solid #007feb;;
-	/*position: relative;*/
 }
 #pupload
 {
+	padding: 5px;
 	border-radius: 10px;
-	border: 1px solid #007feb;;
 }
 
 .pupload
@@ -208,6 +195,9 @@ position: relative;
     padding: 20px 40px 30px;
     border-radius: 1px;
 	width: 450px;
+	height: 400px;
+	margin: 10px;
+	overflow: auto;
 	display: block;
 	float:right;
 }
@@ -275,8 +265,6 @@ form > div > fieldset > div > div {
 }
 form > div > label,
 legend {
-	/*width: 25%;*/
-  /*float: left;*/
   padding-right: 10px;
 }
 form > div > div,
@@ -348,13 +336,9 @@ textarea:focus {
 }
 		html
 		{
-			/*background-color: #66cccc;*/
 			background: #f8f8f8;
-			         /*background     : transparent url("adresse de l'image transparente") repeat ;*/
-			/*background-image: url("https://webdesignerdepot.s3.amazonaws.com/default-images/29.jpg");			*/
 			font-family: 'proxima-nova','Helvetica Neue',Helvetica,Arial,sans-serif;
 			font-size: small;
-			/*font-style: oblique;*/
 			height: 100%;
 		}
 		body
@@ -399,13 +383,9 @@ textarea:focus {
 		}		
 		.ret_pic
 		{
-			/*position: absolute;*/
-			/*padding: 5px;*/
 	 		display: inline-block;
-			/*top: 0;*/
 			padding-top: 20px;
 			padding-left: 20px;
-			/*margin-left: -40px;*/
 		}
 		
 		.account-form2
@@ -417,7 +397,6 @@ textarea:focus {
 			-webkit-box-shadow: 0 1px 5px rgba(0,0,0,0.05);
 			box-shadow: 0 1px 5px rgba(0,0,0,0.05);
 			border: 1px solid rgba(0,0,0,0.07);
-			/*padding: 20px 40px 30px;*/
 			border-radius: 1px;
 		}
 
@@ -427,29 +406,19 @@ textarea:focus {
 			height: 400px;
 			margin-left: 20px;
 			 background: #FFFFFF;
-    -webkit-box-shadow: 0 1px 5px rgba(0,0,0,0.05);
-    box-shadow: 0 1px 5px rgba(0,0,0,0.05);
-    border: 1px solid rgba(0,0,0,0.07);
-    padding: 20px 40px 30px;
-    border-radius: 1px;
+			-webkit-box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+			box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+			border: 1px solid rgba(0,0,0,0.07);
+			padding: 20px 40px 30px;
+			border-radius: 1px;
 		}
 		.form1
 		{
 			border: 1px solid black;
-			margin-bottom: 200px;
-			    /*width:105px;*/
-    /*margin:0 auto;*/
-			/*border-radius: 5px 10px 5px 5px;*/
-			/*border: 1vmin solid blue;*/
 			display: block;
 			position: relative;
-			/*align-content: center;*/
-			/*margin-left: 200px;*/
 			margin: auto;
-			float: left;
 			display: inline;
-			width:75vmin;
-			height: 40vmin;
 			margin-right: 2px;
 		}
 		.gallery
@@ -465,15 +434,12 @@ textarea:focus {
 		{
 			font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 			font-size: small;
-			/*font-style: oblique;*/
 			width: 10px;
 		}
 		.all_form_4
 		{
 			max-width:100vmin;
 			display: inline-block;
-			/*float: center;*/
-	    	/*background-color:black;*/
     		height:30vmin;
 		}
 		.all_form2
@@ -483,24 +449,18 @@ textarea:focus {
 		}
 		.form2
 		{
-			/*border-radius: 5px 10px 5px 5px;			*/
 			margin-left: 1vmin;
-			/*border: 1vmin solid blue;*/
 			display: block;
 			float: right;
 			width:75vmin;
-			/*margin:0 auto;*/
 			height:40vmin;
 		}
 		.create_account
 		{
-			   /*width: 100%;*/
 			position: absolute; 
 			top: 20px;
 			right: 0;
 			margin-right: 15px;
-			/*margin: 25px auto;
-			width: 200px; */
 		}
 		#create_account
 		{
@@ -522,29 +482,12 @@ textarea:focus {
 		}
 		.form_com
 		{
-			margin-top: -20px;
 			display: block;
-			position: absolute;
-			right: 0;
-			margin-right: 285px;
-			/*padding: 10px;*/
-			/*float: right;
-			display: block;
-			margin-top: 110px;*/
-			/*margin-top: -60px;*/
-			/*height: 300px;
-    margin-right: 144px;
-    margin-top: 20px;*/
-    /* height: 150px; */
-    /*display: block;
-    overflow: auto;
-    float: right;
-    width: 250px;
-    line-height: 1.75;*/
+			margin-left: 250px;
+   			margin-bottom: 20px;
 		}
 		.nav_bar
 		{
-			/*background: #66cccc;*/
 			background: #0667D0;
 			padding: 2px 0;
 			height: 70px;
@@ -581,23 +524,6 @@ textarea:focus {
 			color: #484c57;
     		text-decoration: none;
 			line-height: 1.4;
-			/*text-decoration:none;
-			background-color: #007feb;
-			border: 1px solid transparent;
-			border-radius: 4px;
-			color: #fff;
-			cursor: pointer;
-			display: inline-block;
-			width: 14em;
-			font-size: 12px;
-			line-height: 16px;
-			margin: 0;
-			padding: 7px 12px;
-			position: relative;
-			text-align: center;
-			vertical-align: middle;
-			transition-duration: .15s;
-			transition-property: background-color,border-color,color,opacity;	*/
 		}
 		#startbutton
 		{
@@ -632,12 +558,7 @@ textarea:focus {
 			margin-left: auto;
     		margin-right: -50px;
 		}
-		/*.formulaire
-		{
-			display: block;
-			margin-left: auto;
-    		margin-right: auto;
-		}*/
+
 		.hello
 		{
 			display: block;
@@ -667,52 +588,28 @@ textarea:focus {
 				margin-top: 10px;
     		width: 13em;
 		}
-		/*canvas {
-			display: none;
-		}*/
+
 		.leform
 		{
 			display: block;
 			margin-top: 50px;
-border: 3px solid black;
-/*width: 60%;*/
-height: 100%;
+			border: 3px solid black;
+			height: 100%;
 		}
 		video
 		{
-			/*width: 500px;*/
-			/*margin-left: -100px;*/
 			border: 1px solid #007feb;
 			border-radius: 10px;
-			/*display: flex;
-			align-content: left;*/
 			
 		}
-		/*video, #startbutton 
-		{
-			display: block;
-			float: left;
-			margin-top: 60px;
-			margin-left: 30px;
-			border-radius: 10px;
-		}*/
 				video,
 		{
 			display: block;
 			float: left;
 			margin-top: 60px;
 			margin-left: 30px;
-			/*border-radius: 10px;*/
 		}
-		/*#startbutton 
-		{
-			background: green;
-			border: none;
-			color: #fff;
-			margin: 100px 20px 20px 20px;
-			padding: 10px 20px;
-			font-size: 20px;
-		}*/
+
 		.date_comm
 		{
 			text-align: right;
@@ -722,15 +619,11 @@ height: 100%;
 		.author
 		{
 			margin-top:0px;
-			/*z-index : 1000;*/
-			/*position: relative;*/
 						text-align: center;
 			vertical-align:middle;
-display:inline-block;
-			/*border: 1px solid black;*/
+			display:inline-block;
 			margin: 0 auto;
 			width: 250px;
-			float: right;
 			text-align: left;
 			font-family: 'proxima-nova','Helvetica Neue',Helvetica,Arial,sans-serif;
 			margin: 20px 0;
@@ -742,29 +635,13 @@ display:inline-block;
 		.les_comm
 		{
 			height: 200px;
-			margin-right: 144px;
+			margin-right: 125px;
 			margin-top: 20px;
-			/*height: 150px;*/
 			display: block;
 			overflow: auto;
 			float: right;
-			width: 250px;
+			width: 273px;
 			line-height: 1.75;
-			
-			/*display: block;*/
-			/*text-align: center;
-			vertical-align:middle;
-display:inline-block;
-			border: 1px solid black;
-			margin: 0 auto;
-			width: 50%;
-			float: right;
-			font-family: 'proxima-nova','Helvetica Neue',Helvetica,Arial,sans-serif;
-			margin: 20px 0;
-			font-size: 13px;
-			line-height: 1.2;
-			color: #3E4552;
-			font-weight: 300;*/
 		}
 		#container
 		{
@@ -775,116 +652,78 @@ display:inline-block;
 
 
 
-#menu, #menu ul /* Liste */     
+#menu, #menu ul
 {
-        padding : 10px; /* pas de marge intérieure */
-        margin : 0; /* ni extérieure */
-        list-style : none; /* on supprime le style par défaut de la liste */
-        line-height : 21px; /* on définit une hauteur pour chaque élément */
-        text-align : center; /* on centre le texte qui se trouve dans la liste */
+        padding : 10px;
+        margin : 0;
+        list-style : none;
+        line-height : 21px;
+        text-align : center;
 }
 
-#menu /* Ensemble du menu */
+
+#menu a
 {
-        /*font-weight : bold;  on met le texte en gras */
-        /*font-family : Arial;  on utilise Arial, c'est plus beau ^^ */
-        /*font-size : 12px;  hauteur du texte : 12 pixels */
+		top: 14px;
+		right: 0;
+		margin-right: 35px;
+		color: black;
+    	font-weight: 600;
+        display : block;
+        padding : 0;
+        color : black;
+		position: absolute;
+        text-decoration : none;
 }
-
-#menu a /* Contenu des listes */
+#menu ul li:hover ul 
 {
-			top: 14px;
-			right: 0;
-			margin-right: 35px;
-			    /*color: rgba(255,255,255,0.95);*/
-				color: black;
-    font-weight: 600;
-    /*text-shadow: none;
-    text-decoration: none;
-    padding: 8px 10px;
-    font-size: 13px;
-    margin: 0px 0px 0px 5px;
-    border-radius: 2px;
-		    background: transparent;
-    border: 2px solid #fff;
-		line-height: 20px;
-    text-align: center;
-		vertical-align: middle;
-    cursor: pointer;*/
-
-
-
-
-        display : block; /* on change le type d'élément, les liens deviennent des balises de type block */
-        padding : 0; /* aucune marge intérieure */
-        /*background : #000;  couleur de fond         */
-        color : black; /* couleur du texte */
-				position: absolute; 
-		
-        text-decoration : none; /* on supprime le style par défaut des liens (la plupart du temps = souligné) */
-        /*width :200px;
-		height: 100px; */
+	display: block;
 }
-#menu ul li:hover ul {
- display: block;
- }
-#menu li /* Elements des listes */      
+#menu li    
 { 
         float : right;
 		display: block; 
-		/*height: 100px;*/
-		/*width: 100px;*/
-        /* pour IE qui ne reconnaît pas "transparent" */
-        border-right : 1px solid #fff; /* on met une bordure blanche à droite de chaque élément */
+        border-right : 1px solid #fff;
 }
 
-/* IE ne reconnaissant pas le sélecteur ">" */
 html>body #menu li
 {
-        border-right: 1px solid transparent ; /* on met une bordure transparente à droite de chaque élément */
+        border-right: 1px solid transparent ;
 }
 
-#menu li ul /* Sous-listes */
+#menu li ul
 { 
         position: absolute;
-        /*width: 100px;*/
-        right: -999em; /* Hop, on envoie loin du champ de vision */
+        right: -999em;
 }
 
-
-#menu li ul li /* Éléments de sous-listes */
+#menu li ul li 
 {
-        /* pour IE qui ne reconnaît pas "transparent" (comme précédemment) */
-        border-top : 1px solid black; /* on met une bordure blanche en haut de chaque élément d'une sous liste */
+        border-top : 1px solid black; 
 }
-
-/* IE ne reconnaissant pas le sélecteur ">" */
 html>body #menu li ul li                
 {
-        border-top : 1px solid transparent; /* on met une bordure transparente en haut de chaque élément */
+        border-top : 1px solid transparent;
 }
 
 #menu li ul ul 
 {
-        /*margin    : -22px 0 0 144px ;  On décale les sous-sous-listes pour qu'elles ne soient pas au dessus des sous-listes  */
-        /* pour IE qui ne reconnaît pas "transparent" (comme précédemment) */
-        border-left     : 1px solid black ; /* Petite bordure à gauche pour ne pas coller ... */      
+        border-left     : 1px solid black ;  
 }
 
-/* IE ne reconnaissant pas le sélecteur ">" ... je me répète ;-) */
-html>body #menu li ul ul                
+html>body #menu li ul ul
 {
-        border-left     : 1px solid black ; /* on met une bordure transparente sur la gauche de chaque élément */
+        border-left     : 1px solid black ;
 }
-#menu li:hover ul ul, #menu li.sfhover ul ul /* Sous-sous-listes lorsque la souris passe sur un élément de liste */
+#menu li:hover ul ul, #menu li.sfhover ul ul
 {
-        right: -999em; /* On expédie les sous-sous-listes hors du champ de vision */
+        right: -999em;
 }
 
-#menu li:hover ul, #menu li li:hover ul, #menu li.sfhover ul, #menu li li.sfhover ul  /* Sous-listes lorsque la souris passe sur un élément de liste ET sous-sous-lites lorsque la souris passe sur un élément de sous-liste */
+#menu li:hover ul, #menu li li:hover ul, #menu li.sfhover ul, #menu li li.sfhover ul
 {
-        right: auto; /* Repositionnement normal */
-        min-height: 0; /* Corrige un bug sous IE */
+    right: auto;
+	min-height: 0;
 }
 .login_head
 {
@@ -896,7 +735,6 @@ html>body #menu li ul ul
 {
 	display: inline;
 	text-align: center;
-	margin-bottom: 10px;
 	margin-left: 8px;
     margin-right: 6px;
 	font-family: 'proxima-nova','Helvetica Neue',Helvetica,Arial,sans-serif;
@@ -907,13 +745,6 @@ html>body #menu li ul ul
 {
 	margin-top: 10px;
 }
-
-
-
-
-
-
-
 
 #menu-demo2, #menu-demo2 ul{
 	padding:0;
@@ -954,17 +785,7 @@ transition: .5s all .2s;
 #menu-demo2 li:hover ul{
 max-height:15em;
 }
-/* background des liens menus */
-#menu-demo2 li:first-child{
-/*background-color: #65537A;
-background-image:-webkit-linear-gradient(top, #65537A 0%, #2A2333 100%);
-background-image:linear-gradient(to bottom, #65537A 0%, #2A2333 100%);*/
-}
-#menu-demo2 li:nth-child(2){
-/*background-color: #729EBF;
-background-image: -webkit-linear-gradient(top, #729EBF 0%, #333A40 100%);
-background-image:linear-gradient(to bottom, #729EBF 0%, #333A40 100%);*/
-}
+
 #menu-demo2 li:nth-child(3){
 background-color: #F6AD1A;
 background-image:-webkit-linear-gradient(top, #F6AD1A 0%, #9F391A 100%);
@@ -972,11 +793,7 @@ background-image:linear-gradient(to bottom, #F6AD1A 0%, #9F391A 100%);
 }
 #menu-demo2 li:last-child{
 	background-color: transparent;
-/*background-color: #CFFF6A;*/
-/*background-image:-webkit-linear-gradient(top, #CFFF6A 0%, #677F35 100%);
-background-image:linear-gradient(to bottom, #CFFF6A 0%, #677F35 100%);*/
 }
-/* background des liens sous menus */
 #menu-demo2 li:first-child li{
 background:#2A2333;
 }
@@ -989,10 +806,6 @@ background:#9F391A;
 #menu-demo2 li:last-child li{
 background:#0667D0;
 }
-/* background des liens menus et sous menus au survol */
-#menu-demo2 li:first-child:hover, #menu-demo2 li:first-child li:hover{
-/*background:#729EBF;*/
-}
 #menu-demo2 li:nth-child(2):hover, #menu-demo2 li:nth-child(2) li:hover{
 background:#729EBF;
 }
@@ -1002,7 +815,6 @@ background:#729EBF;
 #menu-demo2 li:last-child:hover, #menu-demo2 li:last-child li:hover{
 background:#729EBF;
 }
-/* les a href */
 #menu-demo2 a{
 text-decoration:none;
 display:block;
@@ -1012,7 +824,6 @@ font-family:arial;
 }
 #menu-demo2 ul a{
 			font-family: 'proxima-nova','Helvetica Neue',Helvetica,Arial,sans-serif;
-			/*margin: 20px 0;*/
 			font-size: 13px;
 			line-height: 1.2;
 			font-weight: 300;
@@ -1027,22 +838,15 @@ color: #fff;
 }
 .likes
 {
-	    /*overflow:hidden;*/
-	
 	width: 50px;
-	/*cursor: pointer;	*/
 	display: inline-block;
 	margin-left: 260px;;
 	text-align: right;
 	margin-top: -14px;
-	/*margin-bottom: 28px;*/
 }
 
-
-/* button submit */
 #monForm button[type="submit"]
 {
-	/*border: #DDEEFF 1px solid;*/
 	border: none; 
 	
 	width: 24px;
@@ -1052,16 +856,13 @@ color: #fff;
 
 #monForm button[type="submit"]:hover
 {
-	/*background-color: #66CC33;*/
 	cursor: pointer;
 }
 
 .count_like
 {
-	/*margin-right: 10px;*/
 	padding-right: 3px;
 	font-size: 15px;
-    /*line-height: 1.2;*/
     color: #3E4552;
     font-weight: 300;
 	font-family: 'proxima-nova','Helvetica Neue',Helvetica,Arial,sans-serif;
@@ -1111,34 +912,14 @@ color: #fff;
 }
 .welcome
 {
-				font-family: 'proxima-nova','Helvetica Neue',Helvetica,Arial,sans-serif;
-			/*margin: 20px 0;*/
-			font-size: 13px;
-			line-height: 1.2;
-			font-weight: 300;
-/*padding:8px 0;*/
+	font-family: 'proxima-nova','Helvetica Neue',Helvetica,Arial,sans-serif;
+	font-size: 13px;
+	line-height: 1.2;
+	font-weight: 300;
 }
-
-#snapchat
+.scroll_pic
 {
-	display: inline;
-    position: absolute;
-    margin-left: 80px;
-    margin-top: 50px;
-}
-
-#blunt
-{
-	display: inline;
-    position: absolute;
- 	margin-left: 170px;
-    margin-top: 120px;
-}
-
-#beer
-{
-	display: inline;
-    position: absolute;
-	margin-left: 113px;
-    margin-top: 58px;
+	overflow: auto;
+	height: 150px;
+	width: 300px;
 }
